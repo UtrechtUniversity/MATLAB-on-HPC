@@ -7,4 +7,4 @@ Tools and instructions for developing and running MATLAB scripts on HPC clusters
 
 # Install MATLAB
 
-`http:\\iets.ergens`
+`http:\\iets.staat.ergens`
