@@ -37,9 +37,22 @@ https://docs.docker.com/toolbox/toolbox_install_windows/
 
 Double-click the Docker for Windows Installer to run the installer.
 
+## Step 2: Start Docker software
+
+Start a command line session
+In windows, in the search field next to the start button, type cmd and open command prompt
+
+Type the following command:
+```
+$ docker version 
+```
+Information should be displayed for Docker Client and for Docker Server.
 
 
 
 # Install MATLAB
 
-see [this page](./matlab.md)
+see [Introduction to Linux](./Linux_intro.md)
+see [Introduction to HPC](./HPC_intro.md)
+see [SSH & SCP](./ssh.md)
+see [Parallelization of MATLAB scripts](./matlab.md)
