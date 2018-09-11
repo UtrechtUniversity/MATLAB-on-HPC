@@ -25,12 +25,12 @@ Option 2: Install Docker Toolbox (see step 1c).
 
 To check which Windows version you have: press Windows key + I > system > about
 
-## Step 1b: Install Docker software on PC (mac)
+### Step 1b: Install Docker software on PC (mac)
 
 Download Docker Community Edition (CE) via:   
 https://store.docker.com/editions/community/docker-ce-desktop-mac
 
-## Step 1c: Install Docker software on PC (Windows 10 Home)
+### Step 1c: Install Docker software on PC (Windows 10 Home)
 
 Download Docker Toolbox via:   
 https://docs.docker.com/toolbox/toolbox_install_windows/
