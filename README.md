@@ -30,7 +30,7 @@ To check which Windows version you have: press Windows key + I > system > about
 Download Docker Community Edition (CE) via:   
 https://store.docker.com/editions/community/docker-ce-desktop-mac
 
-+ Step 1c: Install Docker software on PC (Windows 10 Home)
+* Step 1c: Install Docker software on PC (Windows 10 Home)
 
 Download Docker Toolbox via:   
 https://docs.docker.com/toolbox/toolbox_install_windows/
@@ -40,14 +40,39 @@ Double-click the Docker for Windows Installer to run the installer.
 ## Step 2: Start Docker software
 
 Start a command line session
-In windows, in the search field next to the start button, type cmd and open command prompt
 
-Type the following command:
+For some background and basic functions of windows command line see [Windows Command Line](./CMD.md)  
+
+Navigate to the directory where Docker is installed.
+
+e.g.
+
 ```
-$ docker version 
+...> cd /
+C:\> cd Program Files/Docker Toolbox
+```
+Type the following command:
+
+```
+> docker version 
 ```
 Information should be displayed for Docker Client and for Docker Server.
 
+## Step 3: Create a virtual machine
+
+Now you will create a virtual machine with the name ‘default’. The example below has 3 cores  (–virtualbox-cpu-count 3), a storage disk with 100 GB storage (--virtualbox-disk-size "100000") and 3 GB RAM (--virtualbox-memory 3000). These values can be adapted if required. Too much RAM may slow down your working station. 
+
+Type the following command:
+```
+> docker-machine create -d virtualbox –virtualbox-cpu-count 3 --virtualbox-disk-size "100000" --virtualbox-memory 3000 default
+```
+
+Now type the following commands to set the docker environment to the newly created machine:
+
+```
+> docker-machine env default
+> @FOR /f "tokens=*" %i IN ('docker-machine env default') DO @%i
+```
 
 
 # Install MATLAB  
