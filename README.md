@@ -50,9 +50,9 @@ Information should be displayed for Docker Client and for Docker Server.
 
 
 
-# Install MATLAB
+# Install MATLAB  
 
-see [Introduction to Linux](./Linux_intro.md)
-see [Introduction to HPC](./HPC_intro.md)
-see [SSH & SCP](./ssh.md)
+see [Introduction to Linux](./Linux_intro.md)  
+see [Introduction to HPC](./HPC_intro.md)  
+see [SSH & SCP](./ssh.md)  
 see [Parallelization of MATLAB scripts](./matlab.md)
