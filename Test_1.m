@@ -1,6 +1,6 @@
 function s = test_1(n, nprocs)
 
-fprintf ( 1, '  Start of script');
+fprintf ( 1, '  Start of test run\n');
 
 if (isstr(n))
   n = str2num(n);
@@ -19,7 +19,8 @@ for i = 1:n
 end
 
 toc
-fprintf ( 1, '  End of script');
+
+fprintf ( 1, '  End of test run\n');
 
 s=1;
 end
