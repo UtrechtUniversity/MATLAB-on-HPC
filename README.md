@@ -123,16 +123,16 @@ Recommended software for SSH is MobaXterm, available at https://mobaxterm.mobate
 Open MobaXterm
 Start an SSH session: Click Session > SSH
 
-Fill in the following fields: 
-Remote host: < IP – address >      	
-Username: root   	
-Port: 23 
+Fill in the following fields:   
+Remote host: < IP – address >        	
+Username: root     	
+Port: 23   
 The IP - address that needs to be filled in can be found via windows command line using $  docker-machine ls)
 
 Under Bookmark settings, choose a session name (e.g. Docker).
 
-Click OK to start the session
-When you are asked for a password, fill in:
+Click OK to start the session  
+When you are asked for a password, fill in:  
 Password: wijzigen
 
 
