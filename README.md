@@ -258,9 +258,9 @@ In MATLAB, first navigate to the ‘test’ folder in your workspace.
 
 Then open an empty script.
 
-Copy the script [Test_1] (./Test_1.m) and paste it in the editor.
+Copy the script [Test_1](./Test_1.m) and paste it in the editor.
 
-Save the script as Test_1.m
+Save the script as ```Test_1.m```
 
 Type ```exit``` to close MATLAB.
 
@@ -268,7 +268,7 @@ Type ```exit``` to close MATLAB.
 
 Use the SSH session to Docker container in MobaXterm for this step.
 
-Now compile the script using the [mcc] (https://nl.mathworks.com/help/compiler/mcc.html) command:
+Now compile the script using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
 #../mcc -mv -o myExec test_1.m
@@ -293,7 +293,7 @@ Create a job submission file:
 # vim test1
 ```
 
-Press i to enter insert mode.
+Press ```i``` to enter insert mode.
 
 Copy and paste the following text in the editor:
 
