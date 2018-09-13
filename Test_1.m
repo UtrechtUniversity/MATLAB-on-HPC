@@ -4,11 +4,11 @@ fprintf ( 1, '  Start of script');
 
 if (isstr(n))
   n = str2num(n);
-end;
+end
 
 if (isstr(nprocs))
   nprocs = str2num(nprocs);
-end;
+end
 
 tic
 
