@@ -252,6 +252,66 @@ Start MATLAB
 ```
 # ./matlab
 ```
+## Step 3: Create a MATLAB script
+
+In MATLAB, first navigate to the ‘test’ folder in your workspace.
+
+Then open an empty script.
+
+Copy the script [Test_1] (./Test_1.m) and paste it in the editor.
+
+Save the script as Test_1.m
+
+Type ```exit``` to close MATLAB.
+
+## Step 4: Compile and send to HPC
+
+Use the SSH session to Docker container in MobaXterm for this step.
+
+Now compile the script using the [mcc] (https://nl.mathworks.com/help/compiler/mcc.html) command:
+
+```
+#../mcc -mv -o myExec test_1.m
+# ls
+```
+myExec is the compiled program and should now be listed in the folder.
+
+Copy both files to cluster using the scp command or manually.  
+
+```
+# scp myExecSerial <username>@lisa.surfsara.nl:/home/<username>/
+```
+
+For more background on how to transfer data see [Intro SSH & SCP](./ssh.md)
+
+## Step 5: Submit job 
+
+Now start an SSH session to the cluster with MobaXterm.
+
+Create a job submission file:
+```
+# vim test1
+```
+
+Press i to enter insert mode.
+
+Copy and paste the following text in the editor:
+
+```
+UBC
+#!/bin/bash
+module load mcr/v94
+./myExecSerial 200 1
+module unload mcr/v94
+```
+Type ```:wq``` to save and quit.
+
+Now submit the job.
+
+```
+# qsub test1
+```
+
 
 
 
