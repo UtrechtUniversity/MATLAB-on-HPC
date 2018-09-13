@@ -3,10 +3,16 @@ output:
   pdf_document: default
   html_document: default
 ---
-# MATLAB-on-HPC
-Tools and instructions for developing and running MATLAB scripts on HPC clusters
+# MATLAB-on-HPC contents
+
+Part 1: Installation
+
+Part 2: Usage of MATLAB
+
+Part 3: Parallel computing with MATLAB
 
 # Introduction
+
 
 # Part 1: Preparation. Create a virtual machine and install Matlab
 
