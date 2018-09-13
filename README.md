@@ -8,7 +8,9 @@ Tools and instructions for developing and running MATLAB scripts on HPC clusters
 
 # Introduction
 
-# Install Docker
+# Part 1: Preparation. Create a virtual machine and install Matlab
+
+The steps in this part only need to be executed once.
 
 ## Step 1: Install Docker software on PC (Windows 10 Pro)
 
