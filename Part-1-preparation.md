@@ -180,3 +180,18 @@ Choose destination folder: /usr/local/MATLAB/R2018a and proceed
 
 Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.
 
+When the installer has finished you are ready to start MATLAB.
+
+Go to [part 2](./Part-2-running-matlab.md)
+
+
+
+## Links
+
+[Introduction to Linux](./Linux_intro.md)  
+[Introduction to Docker](./Docker_intro.md)  
+[Introduction to HPC](./HPC_intro.md)  
+[Intro SSH & SCP](./ssh.md)  
+[Parallelization of MATLAB scripts](./matlab.md)  
+[MATLAB Test script 1](./Test_1.m)  
+
