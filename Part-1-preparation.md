@@ -1,9 +1,7 @@
 
-# Part 1: Preparation 
+# Part 1: Create a virtual machine and install Matlab
 
-**Create a virtual machine and install Matlab**
-
-The steps in this part only need to be executed once.
+This part is all preparation. The steps in this part only need to be executed once.
 
 ## Step 1: Install Docker software on PC (Windows 10 Pro)
 
