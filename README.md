@@ -15,7 +15,7 @@ This guide presents a workflow to make it possible to run your MATLAB script on 
 ## Costs and benefits
 To decide whether or not to start with HPC as a researcher can be difficult. The benefits should outweigh the costs but on forehand this is not easy to estimate.
 
-**Costs **
+**Costs**
 You have to invest time in order to learn how to manage your scripts, your data and operate the HPC system. How much time this is difficult to say and depends on previous experience with HPC, Linux, SSH connections, etc.
 This manual is suitable for different entry levels and is composed of different components.  
 An experienced user can run through the step-by-step instruction (probably within a couple of hours). New users can make use of the different introductory manuals that are linked to during the step-by-step instructions (to go through all manuals will probably cost a couple of days). Beginning users may lose some more time solving issues during daily usage of the HPC system.
