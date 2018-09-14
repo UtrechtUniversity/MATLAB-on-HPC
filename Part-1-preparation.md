@@ -1,7 +1,9 @@
 
 # Part 1: Create a virtual machine and install Matlab
 
-This part is all preparation. The steps in this part only need to be executed once.
+When you are working on Windows or Mac, we recommend installing a Docker container with a Linux operating system and MATLAB on your computer to compile MATLAB code, as code has to be compiled on a linux system in order to be compatible with HPC. The steps to install this container are described below.
+
+This part of the workflow is all preparation. The steps in this part only need to be executed once.
 
 ## Step 1: Install Docker software on PC (Windows 10 Pro)
 
