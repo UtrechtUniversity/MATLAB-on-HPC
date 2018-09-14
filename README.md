@@ -5,11 +5,13 @@ output:
 ---
 # MATLAB-on-HPC contents
 
-Part 1: Installation
+A complete step-by-step instruction from 
 
-Part 2: Usage of MATLAB
+Part 1: [Installation](./Part-1-preparation.md)
 
-Part 3: Parallel computing with MATLAB
+Part 2: [Running MATLAB](./Part-2-running-matlab.md)
+
+Part 3: [Parallel computing with MATLAB](./matlab.md)
 
 # Introduction
 
@@ -373,9 +375,13 @@ In windows command line type
 ```
 to stop the virtual machine.
 
+## Links
 
+[Introduction to Linux](./Linux_intro.md)
+[Introduction to Docker](./Docker_intro.md)
+[Introduction to HPC](./HPC_intro.md)
+[Intro SSH & SCP](./ssh.md)
+[Parallelization of MATLAB scripts](./matlab.md)
+[MATLAB Test script 1](./Test_1.m)
 
-see [Introduction to Linux](./Linux_intro.md)
-see [Introduction to Docker](./Docker_intro.md)
-see [Introduction to HPC](./HPC_intro.md)  
 
