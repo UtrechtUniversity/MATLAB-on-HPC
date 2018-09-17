@@ -103,7 +103,7 @@ Click OK to start the session
 When you are asked for a password, fill in:  
 Password: wijzigen
 
-##Step 7: Move the MATLAB installer
+## Step 7: Move the MATLAB installer
 
 Use the SSH session in MobaXterm for this step.
 
