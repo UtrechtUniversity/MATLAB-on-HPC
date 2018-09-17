@@ -85,7 +85,7 @@ myExec is the compiled program and should now be listed in the folder.
 Copy both files to cluster using the scp command or manually.  
 
 ```
-# scp myExecSerial <username>@lisa.surfsara.nl:/home/<username>/
+# scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 ```
 
 For more background on how to transfer data see [Intro SSH & SCP](./ssh.md)
@@ -103,13 +103,23 @@ Press ```i``` to enter insert mode.
 
 Copy and paste the following text in the editor:
 
-```
 UBC
+```
 #!/bin/bash
-module load mcr/v94
+module load mcr/v94           # mcr version should be same as matlab version
 ./myExecSerial 200 1
 module unload mcr/v94
 ```
+LISA
+```
+#PBS -lnodes=1 -lwalltime=00:10:00
+module load mcr/2017b         # mcr version should be same as matlab version
+cd ./test
+./myExecSerial 200 1
+module unload mcr
+
+```
+
 Type ```:wq``` to save and quit.
 
 Now submit the job.
