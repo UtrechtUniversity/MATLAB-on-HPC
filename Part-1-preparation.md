@@ -1,7 +1,7 @@
 
 # Part 1: Create a virtual machine and install Matlab
 
-When you are working on Windows or Mac, we recommend installing a Docker container with a Linux operating system and MATLAB on your computer to compile MATLAB code, as code has to be compiled on a linux system in order to be compatible with HPC. The steps to install this container are described below.
+When you are working on Windows or Mac, we recommend installing a Docker container with a Linux operating system and MATLAB on your computer to compile MATLAB code, as code has to be compiled on a linux system in order to be compatible with HPC. The steps to install this container with a MATLAB installation for Linux ar described in Part 1. If you already have MATLAB running under Linux you can go to [Part 2](./Part-2-running-matlab.md).
 
 This part of the workflow is all preparation. The steps in this part only need to be executed once.
 
@@ -46,13 +46,6 @@ e.g.
 ...> cd /
 C:\> cd Program Files/Docker Toolbox
 ```
-Type the following command:
-
-```
-> docker version 
-```
-Information should be displayed for Docker Client and for Docker Server.
-
 ## Step 3: Create a virtual machine
 
 Now you will create a virtual machine with the name ‘default’. The example below has 3 cores  (–virtualbox-cpu-count 3), a storage disk with 100 GB storage (--virtualbox-disk-size "100000") and 3 GB RAM (--virtualbox-memory 3000). These values can be adapted if required. Too much RAM may slow down your working station. 
@@ -61,6 +54,14 @@ Type the following command:
 ```
 > docker-machine create -d virtualbox –virtualbox-cpu-count 3 --virtualbox-disk-size "100000" --virtualbox-memory 3000 default
 ```
+
+Type the following command:
+
+```
+> docker version 
+```
+Information should be displayed for Docker Client and for Docker Server.
+
 
 Now type the following commands to set the docker environment to the newly created machine:
 
