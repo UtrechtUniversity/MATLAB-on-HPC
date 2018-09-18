@@ -113,6 +113,9 @@ The [Parallel Computing Toolbox](https://nl.mathworks.com/help/distcomp/index.ht
 Suitable for: Tasks involving a number of independent calculations
 (e.g. model simulations, parameter optimization, sensitivity analyses, for-loops with independent iterations, repetitions)
 
+A parfor-loop can simply replace for-loops when iteration are independent of eachother. Iterations are assigned to different workers (cores) and it is not possible to control which worker performs which iteration. If iterations are not too short and more or less equal in computation time speedups can be quite high.
+
+[This](./test_parallel.m) example script does a number of independent eigenvector calculations. The calculation is repeated 5 times with an increasing number of cores (1,2,4,8,16) each iteration. This script was run on the UBC cluster on a compute node with 24 cores. The time it took for each iteration to complete and resulting speedup is displayed in the table below. The speedup is clear, although a little biased, as the first iteration takes a little longer due to first time execution.
 
 Cores     |Walltime |Speedup 
 ----------|---------|---------
