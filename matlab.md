@@ -100,7 +100,7 @@ Cores     |Walltime |Speedup
 
 
 The testscripts above can be used as a template to test different functions and problem sizes before implementing such a solution to your code.
-Note that MATLAB automatically uses all available cores available, so no alterations have to be made to your code to implement this and running your code on a HPC node with many 16 or more cores may automatically result in speedups (depending on whether your problem is suitable). For these specific test examples the command ```maxNumCompThreads(m)``` is used each iteration to limit the number of threads.
+Note that MATLAB automatically uses all available cores available, so no alterations have to be made to your code to implement this and running your code on a HPC node with 16 or more cores may automatically result in speedups (depending on whether your problem is suitable). For these specific test examples the command ```maxNumCompThreads(m)``` is used each iteration to limit the number of threads.
 To disable multithreading add ```-R singleCompThread``` to the mcc command:
 ```
 ../mcc -mv -R singleCompThread -o myexample examplescript.m
