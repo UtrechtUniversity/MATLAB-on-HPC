@@ -73,7 +73,7 @@ Below two examples of multithreaded functions are shortly discussed: matrix mult
 
 **Example matrix multiplication**
 
-[This](./test_matmul.m) example script performs a simple matrix multiplication of a 5000*5000 matrix. The calculation is repeated 5 times with an increasing number of cores (1,2,4,8,16) each iteration. This script was run on the UBC cluster on a compute node with 24 cores. The time it took for each iteration to complete and resulting speedup is displayed in the table below. The speedup is clear, although a little biased, as the first iteration takes a little longer due to first time execution. The speedup is dependend on problem size. A smaller or larger matrix can reduce speedup, possibly due to memory issues, communication or other trade-offs.
+This [example script](./test_matmul.m) performs a simple matrix multiplication of a 5000*5000 matrix. The calculation is repeated 5 times with an increasing number of cores (1,2,4,8,16) each iteration. This script was run on the UBC cluster on a compute node with 24 cores. The time it took for each iteration to complete and resulting speedup is displayed in the table below. The speedup is clear, although a little biased, as the first iteration takes a little longer due to first time execution. The speedup is dependend on problem size. A smaller or larger matrix can reduce speedup, possibly due to memory issues, communication or other trade-offs.
 
 
 Cores     |Walltime |Speedup 
