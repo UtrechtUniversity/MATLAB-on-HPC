@@ -1,18 +1,97 @@
 # Parallel computing with MATLAB
-This part provides examples of ways to parallelize MATLAB code and benchmark tests how these parallel solutions perform on HPC.
+This part provides instructions on how to create (or adapt) a script that is compatible for HPC, examples of ways to parallelize MATLAB code and benchmark tests how these parallel solutions perform on HPC.
 
-A MATLAB script can take a lot of time to complete for several reasons, e.g: A single step within the script can take a lot of time because of the complexity of calculations, a very large number of very small calculations can also lead to long computation times as well as the usage of very large datasets.   Depending on the reason for the long computation times there may be one or several options to reduce computation times.
+# Instructions for creating HPC compatible MATLAB scripts
+To make a script compatible for HPC you basically need to make 2 changes.
+
+1. The main script should be structured and saved as a function.
+
+2. Any input variables that are passed assigned outside this function and passed when calling the main function are passed as characters and need to be converted to numeric.
+
+Example:
+
+```
+function m = examplescript (n)  % Create function
+
+if (isstr(n))                   % Convert function input
+  n = str2num(n);               % Convert function input
+end                             % Convert function input
+
+m = magic(n);                   % Main body of script
+disp(m)                         % Main body of script
+
+end                             % End of function
+```
+The output m will be printed as text in the output file of the HPC job. To save variable or the entire workspace for future analyses, use the save command and save e.g. as .mat file.
+
+To be compatible with HPC, scripts have to be translated to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command. Compiling the above script can be done as follows.
+
+```
+../mcc -mv -o myexample examplescript.m
+```
+
+A couple of obtions are activated in the command:
+
+```-m```
+
+which means: direct mcc to generate a standalone application.
+
+```-v```
+
+which means: display the compilation steps.
+
+```-o <executable name>```
+
+which is used to specify the name of the final executable.
+
+If you compile a script that calls different (non built-in) functions, these need to be specified as well directly after the main script.
+```
+../mcc -mv -o myexample examplescript.m examplescript2.m
+```
+If there are a large number of scripts that are called it can help to put them in a folder and add this folder using the ```-a``` option:
+```
+../mcc -mv -o examplefolder examplescript.m -a ./examplefolder
+```
+```-a ./examplefolder``` will include all files in the ```examplefolder``` and files in subfolders of ```examplefolder```.
+
+To include only matlabscript that are inside ```examplefolder``` use:
+
+```-a ./examplefolder/*.m```
+
+```*.m``` means that all files with a ```.m``` extension are included.
+
+# Speeding up MATLAB calculations
+A MATLAB script can take a lot of time to complete for several reasons, e.g: A single step within the script can take a lot of time because of the complexity of calculations, a very large number of very small calculations can also lead to long computation times as well as the usage of very large datasets. Depending on the reason for the long computation times there may be one or several options to reduce computation times.
 To obtain insight into where most time is lost, it may be wise to use the [profiling](https://nl.mathworks.com/help/matlab/matlab_prog/profiling-for-improving-performance.html) options of MATLAB.
 
+## Implicit parallelization (multithreading)
+Suitable for: scripts spending a significant amount of time on functions that are multithreaded by default in MATLAB ( [function list](https://nl.mathworks.com/matlabcentral/answers/95958-which-matlab-functions-benefit-from-multithreaded-computation)).
+
+Many MATLAB functions are multithreaded by default and use all available cores on a machine to execute faster. This means that codes that spend a significant amount of time performing these type of functions could greatly benefit from running on multicore nodes on HPC systems without additional changes to the code. However, multithreading may in certain situations slow down code when communication data transfer between the cores outweighs the lower workload. 
+
+Below are two examples of such scripts.
+
+**Example matrix multiplication**
 
 
+Cores     |Walltime |Speedup 
+----------|---------|---------
+1         | 4.4     |  1
+2         | 1.5     |  3.0
+4         | 0.8     |  5.8
+8         | 0.5     |  9.0
+16        | 0.4     | 11.4
 
 
-## Implicit parallelization
+**Example linear solving**
 
-Example matrix multiplication
-Example linear solving
-
+Cores     |Walltime |Speedup 
+----------|---------|---------
+1         | 9.4     | 1
+2         | 6.1     | 1.5
+4         | 4.7     | 2.0
+8         | 4.1     | 2.3
+16        | 3.7     | 2.5
 
 ## Parallel Computing Toolbox
 
@@ -23,6 +102,13 @@ Suitable for: Tasks involving a number of independent calculations
 (e.g. model simulations, parameter optimization, sensitivity analyses, for-loops with independent iterations, repetitions)
 
 
+Cores     |Walltime |Speedup 
+----------|---------|---------
+1         | 46.9    |  1
+2         | 15.7    |  3.0
+4         |  8.7    |  5.4
+8         |  4.7    | 10.0
+16        |  3.3    | 14.0
 
 
 When a task involves many more iterations than the number of cores available on a node, it may be useful to cut the work into smaller pieces and submit separate jobs and make use of more than one node at the same time (see section jobs below).

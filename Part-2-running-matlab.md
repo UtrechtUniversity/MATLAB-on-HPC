@@ -70,11 +70,13 @@ Save the script as ```Test_1.m```
 
 Type ```exit``` to close MATLAB.
 
+For instructions on how to adapt your own scripts to
+
 ## Step 4: Compile and send to HPC
 
 Use the SSH session to Docker container in MobaXterm for this step.
 
-Now compile the script using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
+Now compile (translate) the script to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
 #../mcc -mv -o myExec test_1.m
