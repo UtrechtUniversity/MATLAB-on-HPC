@@ -69,9 +69,11 @@ Suitable for: scripts spending a significant amount of time on functions that ar
 
 Many MATLAB functions are multithreaded by default and use all available cores on a machine to execute faster. This means that codes that spend a significant amount of time performing these type of functions could greatly benefit from running on multicore nodes on HPC systems without additional changes to the code. However, multithreading may in certain situations slow down code when communication data transfer between the cores outweighs the lower workload. 
 
-Below are two examples of such scripts.
+Below two examples of multithreaded functions are shortly discussed: matrix multiplication and linear solving.
 
 **Example matrix multiplication**
+
+[This](./test_matmul.m) example script performs a simple matrix multiplication of a 5000*5000 matrix. The calculation is repeated 5 times with an increasing number of cores (1,2,4,8,16) each iteration. This script was run on the UBC cluster on a compute node with 24 cores. The time it took for each iteration to complete and resulting speedup is displayed in the table below. The speedup is clear, although a little biased, as the first iteration takes a little longer due to first time execution. The speedup is dependend on problem size. A smaller or larger matrix can reduce speedup, possibly due to memory issues, communication or other trade-offs.
 
 
 Cores     |Walltime |Speedup 
@@ -83,7 +85,10 @@ Cores     |Walltime |Speedup
 16        | 0.4     | 11.4
 
 
-**Example linear solving**
+**Example solve system of linear equations**
+
+[This](./test_solve.m) example script solves a system of linear equations. The calculation is repeated 5 times with an increasing number of cores (1,2,4,8,16) each iteration. This script was run on the UBC cluster on a compute node with 24 cores. The time it took for each iteration to complete and resulting speedup is displayed in the table below. There is some speedup when using more core, but not very impressive.
+
 
 Cores     |Walltime |Speedup 
 ----------|---------|---------
@@ -93,6 +98,13 @@ Cores     |Walltime |Speedup
 8         | 4.1     | 2.3
 16        | 3.7     | 2.5
 
+
+The testscripts above can be used as a template to test different functions and problem sizes before implementing such a solution to your code.
+Note that MATLAB automatically uses all available cores available, so no alterations have to be made to your code to implement this and running your code on a HPC node with many 16 or more cores may automatically result in speedups (depending on whether your problem is suitable). For these specific test examples the command ```maxNumCompThreads(m)``` is used each iteration to limit the number of threads.
+To disable multithreading add ```-R singleCompThread``` to the mcc command:
+```
+../mcc -mv -R singleCompThread -o myexample examplescript.m
+```
 ## Parallel Computing Toolbox
 
 The [Parallel Computing Toolbox](https://nl.mathworks.com/help/distcomp/index.html) provides a number of options to make use of multicore processors for parallel calculations and big data analyses. 
