@@ -42,7 +42,7 @@ Part 1: [Installing docker software and MATLAB](./Part-1-preparation.md)  *(esti
 Part 2: [Compiling MATLAB scripts and running on HPC](./Part-2-running-matlab.md)  *(estimated time to complete)*  
     *This part describes the steps that are used for running code on HPC.*
 
-Part 3: [Parallel computing with MATLAB](./matlab.md)  *(estimated time to complete )*  
+Part 3: [Parallel computing with MATLAB](./Part-3-Parallel-Matlab.md)  *(estimated time to complete )*  
     *This part provides examples of ways to parallelize MATLAB code and benchmark tests how these parallelization perform on HPC.*
 
 
@@ -52,7 +52,7 @@ Part 3: [Parallel computing with MATLAB](./matlab.md)  *(estimated time to compl
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
-[MATLAB Test script 1](./Test_1.m)
+[MATLAB Test script 1](./Test_1.m)  
 [MATLAB Test script 2](./test_matmul.m)  
 [MATLAB Test script 3](./test_solve.m)  
 [MATLAB Test script 4](./test_parallel.m)  

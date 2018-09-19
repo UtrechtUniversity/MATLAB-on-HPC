@@ -140,12 +140,13 @@ Sometimes datasets/matrices are too large in terms of memory to perform calculat
 
 ## MATLAB Distributed Computing Server
 
-MATLAB Distributed Computing Server is currently not provided within the UU license, end therefore not elaborated in this guide.
-
+MATLAB Distributed Computing Server (MDCS) is currently not provided within the UU license and not installed on the HPC systems, end therefore not elaborated in this guide. MDCS allows computations on multiple nodes (and their cores) at the same time. MDCS also allows direct submission of jobs to a cluster during an interactive MATLAB session on a local working station. Current practice is to compile code and run it as a job on a single node. 
 
 ## Jobs
+
 Suitable for: Tasks involving a number of independent calculations
 (e.g. model simulations, parameter optimization, sensitivity analyses, for-loops with independent iterations, repetitions)
 
+A job can be submitted to one node and make use of all the cores on that node for parallelization. However, if the task allows it, it is of course possible to subdivide the work into multiple jobs and submit multiple jobs at the same time to make use of more than 1 compute node. 
 
 

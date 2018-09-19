@@ -89,7 +89,7 @@ Copy both files to cluster using the scp command or manually.
 ```
 # scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 ```
-
+! This command does not work directly when copying to the UBC cluster as an SSH connection should be established using key pairs.
 For more background on how to transfer data see [Intro SSH & SCP](./ssh.md)
 
 ## Step 5: Submit job 
