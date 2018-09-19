@@ -52,7 +52,9 @@ Part 3: [Parallel computing with MATLAB](./matlab.md)  *(estimated time to compl
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
-[Parallelization of MATLAB scripts](./matlab.md)  
-[MATLAB Test script 1](./Test_1.m)  
+[MATLAB Test script 1](./Test_1.m)
+[MATLAB Test script 2](./test_matmul.m)  
+[MATLAB Test script 3](./test_solve.m)  
+[MATLAB Test script 4](./test_parallel.m)  
 
 
