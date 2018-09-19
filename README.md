@@ -8,7 +8,7 @@ output:
 ## Introduction
 MATLAB is versatile software for numerical computing and can be used for a wide range of tasks. When the required MATLAB computations are expected to take a long time (in the order of weeks) to complete, e.g. due to large data files or a very high number of calculations, it can be a good idea to use High Performance Computing (HPC).   
 Not only is it possible to obtain results faster; by performing most of your calculations on an HPC system, you keep your local working station free for other tasks.  
-However, there are some extra actions involved compared to running MATLAB on a local working station. In short: For running MATLAB on HPC one typically translates ('compile') code into 'machine language'. This is done with a single command. Then the compiled code has to be transferred to the HPC system, together with input data. After running the compiled code at HPC, the results are transfered back to the local system, where the results can be viewed. 
+However, there are some extra actions involved compared to running MATLAB on a local working station. In short: For running MATLAB on HPC one typically translates ('compiles') code into 'machine language'. This is done with a single command. Then the compiled code has to be transferred to the HPC system, together with input data. The compiled code is the run using Matlab Compiler Runtime (MCR). MCR is license free software and is typically used on HPC systems to run MATLAB jobs. After running the compiled code at HPC, the results are transfered back to the local system, where the results can be viewed. 
 
 ## Costs and benefits
 To decide whether or not to start with HPC as a researcher can be difficult. The benefits should outweigh the costs but on forehand this is not easy to estimate.
@@ -16,7 +16,7 @@ To decide whether or not to start with HPC as a researcher can be difficult. The
 **Costs**  
 You have to invest time in order to learn how to manage your scripts, your data and operate the HPC system. How much time this is difficult to say and depends on previous experience with HPC, Linux, SSH connections, etc.
 This manual is suitable for different entry levels and is composed of different components.  
-An experienced user can run through the step-by-step instruction (probably within a couple of hours). New users can make use of the different introductory manuals that are linked to during the step-by-step instructions (to go through all manuals will probably cost a couple of days). Beginning users may lose some more time solving issues during daily usage of the HPC system.  
+An experienced user can run through the step-by-step instruction (probably within a half day). New users can make use of the different introductory manuals that are linked to during the step-by-step instructions (to go through all manuals will probably cost a couple of days). Beginning users may lose some more time solving issues during daily usage of the HPC system.  
 Note that you also need an (paid) account for the clusters. It may take some time before everything is approved and you can login. 
 
 **Benefits**  
