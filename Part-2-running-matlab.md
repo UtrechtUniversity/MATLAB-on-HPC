@@ -194,5 +194,5 @@ to stop the virtual machine.
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
-[Parallelization of MATLAB scripts](./matlab.md)  
+[Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
