@@ -99,3 +99,5 @@ It is also recommended to submit a 5 minute test of your large job before submit
 Links / references  
 [LISA getting started](https://userinfo.surfsara.nl/systems/lisa/getting-started)  
 [LISA creating and running jobs](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs)  
+[UBC submission of jobs](https://wiki.bioinformatics.umcutrecht.nl/bin/view/HPC/FirstTimeUsers#Submission_of_jobs) 
+
