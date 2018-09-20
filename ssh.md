@@ -81,7 +81,7 @@ To transfer files from your local machine, click the 'upload to current folder' 
 
 **Transfer using command line**
 
-When you are in an SSH session to your Docker container, you can use scp to copy files directly to an HPC cluster. The syntax is
+When you are in an SSH session to your Docker container, you can use scp to copy files directly to an HPC cluster (for the UBC cluster, keys should be exchanged to make this possible). The syntax is:
 
 ```
 scp <file> <destination>
@@ -91,7 +91,7 @@ For example, to copy myfile.txt from the current directory on your local machine
 ```
 scp myfile.txt <remote adress>:destinationdir
 
-scp myfile.txt gw2hpcs03:/home/<usergroup> / <username>
+scp myfile.txt gw2hpcs03:/home/<usergroup>/<username>
 ```
 
 
