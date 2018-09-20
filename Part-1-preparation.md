@@ -118,7 +118,7 @@ Fill in the following fields:
 Remote host: < IP – address >        	
 Username: root     	
 Port: 23   
-The IP - address that needs to be filled in can be found via windows command line using $  docker-machine ls)
+The IP - address that needs to be filled in can be found via windows command line using ```>  docker-machine ls```)
 
 Under Bookmark settings, choose a session name (e.g. Docker).
 
@@ -197,4 +197,5 @@ Go to [part 2](./Part-2-running-matlab.md)
 [Intro SSH & SCP](./ssh.md)  
 [Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
+
 

@@ -26,19 +26,21 @@ Most PCs have a graphical user interface: you interact with your computer by cli
 As mentioned above, all major calculations will be done on batch nodes. This means that you prepare a "batch job"" on a login node and submit this job to a batch node. How to submit a job differs slightly between LISA and UBC clusters and is explained below.
 
 
-**Job scripts**
-The examples below are used to submit 'myExec' (the compiled MATLAB program [Test_1.m](./Test_1.m) ), with input 200 and 1. The program is located in the directory `./test`. The program Matlab Compiler Runtime is used to run the executable. You can see that different versions are installed on the different systems. mcr/v94 is
+### Job scripts
+
+At job script can be created with a text editor such as VIM (see [Introduction to Linux](./Linux_intro.md) ). 
+The examples below are used to submit 'myExec' (the compiled MATLAB program [Test_1.m](./Test_1.m) ), with input 200 and 1. 
 
 **LISA**
+
 ```
 #PBS -lnodes=1:ppn=1 -lwalltime=00:10:00  # Ask for resources
-module load mcr/2017b                     # Load Matlab Compiler Runtime
+module load mcr/2017b                     # Load Matlab Compiler Runtime (has to match Matlab version that is used to compile script)
 cd ./test                                 # Navigate to directory of executable
 ./myExec 200 1                            # Run Executable with input: 200 and 1
 module unload mcr                         # Unload Matlab Compiler Runtime 
 ```
-
-(can give error in next job when mcr is not unloaded)
+save as: `jobscript.sh`
 
 **UBC**
 
@@ -49,19 +51,48 @@ cd ./test                                 # Navigate to directory of executable
 ./myExec 200 1                            # Run Executable with input: 200 and 1
 module unload mcr/v94                     # Unload Matlab Compiler Runtime
 ```
+save as: `jobscript.sh`
+
+The program is located in the directory `./test`. The program Matlab Compiler Runtime (MCR) is used to run the executable. You can see that different versions are installed on the different systems. The MCR version has to match the MATLAB version that is used to compile the MATLAB program. `mcr/v94` is the version belonging to MATLAB R2018a. You can check which versions of MCR are available using the `module avail` command. The 'module' `mcr` should be unloaded at the end of the job script. It can give errors in your next job when `mcr` is not unloaded in the previous job, or if there was an error in the previous job before unloading `mcr`. In the LISA job script, resources are requested in the first line. `-lnodes=1:ppn=1` means 1 node is requested, with 1 processor per node (ppn=1). 1 node is the maximum for running MATLAB. The maximum number of processors per node depends on the system (16 at LISA). `-lwalltime=00:10:00` means a maximum of 10 minutes is reserved on the assigned node. 
+On UBC resources are requested when submitting the job script.
+When you use many or large input files, it may be beneficial to use scratch space. See instructions how to specify this in your jobscript for LISA [here](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs).
 
 
 
-Job submission syntax and options
+## Job submission syntax and options
+
+A job can be submitted by using the `qsub` command at the command line of the login node of the cluster. You must be in the same directory where your jobscript is saved.
+
+**LISA**
+qsub  jobscript.sh
+
+**UBC**
+qsub -pe threaded 16 -l h_rt=00:05:00  -l h_vmem=5G jobscript.sh
+
+At UBC you have to request resources after the `qsub` command. If you don't specify anything, you will ask for 1 core, 10 minutes and 10 GB of memory by default. Specify the number of cores with `-pe threaded <##>`, the maximum walltime for the job with `-l h_rt=<HH:MM:SS>` and the required memory with `-l h_vmem=<#>G`.
+
+## Job ID
+
+When you submit a job, you receive a code which is an identifier of your job. You can use it to track progress, identify the error and output files and to delete the job when you don't want to run it anymore.
+
+To delete a job:
+
+`qdel <job id>`
+
+To see the progress of all your jobs:
+
+`qstat -u <username>`
+
+## Wall clock time
+With the walltime option a maximum of amount of time is reserved on the assigned node. When this time is reached the job will be killed regardless of whether the job has finished or not. So choose your wall clock time carefully, or save data at regular checkpoints.
+The duration can be specified in HH:MM:SS format (as in the example). The maximum walltime that can be requested depends on the system (check for [LISA](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs) or [UBC](https://wiki.bioinformatics.umcutrecht.nl/bin/view/HPC/FirstTimeUsers#Submission_of_jobs) ). To run longer lasting programs save your data on checkpoints and restart the job from this checkpoint.
+
+It is recommended to time a minimal version of your computational task in order to estimate how long the total task will take. Then, choose your wall clock time liberally based on your expected runtime (e.g. 1.5-2x higher). Once you gain more experience in running similar-sized jobs, you could consider setting walltimes more accurately, as smaller jobs are slightly easier for the scheduler to fit in.
+
+It is also recommended to submit a 5 minute test of your large job before submitting the complete job. This will highlight any errors in the jobscript or in the initialization part of your script (where most errors occur typically). Jobs with a walltime of 5 minutes have priority in the que so you will find out about these errors quite quickly in this way. 
 
 
-qsub -l h_rt=00:15:00  -l h_vmem=5G script.sh
-
-
-
-qsub
-qdel 
-qstat
-
-
-
+Links / references
+[LISA getting started](https://userinfo.surfsara.nl/systems/lisa/getting-started)
+[LISA creating and running jobs](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs)
+[UBC submission of jobs](https://wiki.bioinformatics.umcutrecht.nl/bin/view/HPC/FirstTimeUsers#Submission_of_jobs)
