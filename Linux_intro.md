@@ -1,3 +1,7 @@
+
+Most information on this page is composed from introduction manuals at the websites of [Surfsara](https://userinfo.surfsara.nl/systems/lisa/getting-started) and [University of Surrey](http://www.ee.surrey.ac.uk/Teaching/Unix/).
+
+
 Most PCs have a graphical user interface: you interact with your computer by clicking on files, applications, etc. Lisa is a Unix/Linux system, and you interact primarily wit Lisa through a command line interface. Try a couple of basic commands:
 
     who shows you the list of users that are currently logged in on the same node.
