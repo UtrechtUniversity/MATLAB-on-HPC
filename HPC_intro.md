@@ -54,7 +54,7 @@ module unload mcr/v94                     # Unload Matlab Compiler Runtime
 save as: `jobscript.sh`
 
 The program is located in the directory `./test`. The program Matlab Compiler Runtime (MCR) is used to run the executable. You can see that different versions are installed on the different systems. The MCR version has to match the MATLAB version that is used to compile the MATLAB program. `mcr/v94` is the version belonging to MATLAB R2018a. You can check which versions of MCR are available using the `module avail` command. The 'module' `mcr` should be unloaded at the end of the job script. It can give errors in your next job when `mcr` is not unloaded in the previous job, or if there was an error in the previous job before unloading `mcr`. In the LISA job script, resources are requested in the first line. `-lnodes=1:ppn=1` means 1 node is requested, with 1 processor per node (ppn=1). 1 node is the maximum for running MATLAB. The maximum number of processors per node depends on the system (16 at LISA). `-lwalltime=00:10:00` means a maximum of 10 minutes is reserved on the assigned node. 
-On UBC resources are requested when submitting the job script.
+On UBC resources are requested when submitting the job script.  
 When you use many or large input files, it may be beneficial to use scratch space. See instructions how to specify this in your jobscript for LISA [here](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs).
 
 
@@ -64,10 +64,14 @@ When you use many or large input files, it may be beneficial to use scratch spac
 A job can be submitted by using the `qsub` command at the command line of the login node of the cluster. You must be in the same directory where your jobscript is saved.
 
 **LISA**
+```
 qsub  jobscript.sh
+```
 
 **UBC**
+```
 qsub -pe threaded 16 -l h_rt=00:05:00  -l h_vmem=5G jobscript.sh
+```
 
 At UBC you have to request resources after the `qsub` command. If you don't specify anything, you will ask for 1 core, 10 minutes and 10 GB of memory by default. Specify the number of cores with `-pe threaded <##>`, the maximum walltime for the job with `-l h_rt=<HH:MM:SS>` and the required memory with `-l h_vmem=<#>G`.
 
