@@ -212,7 +212,11 @@ Start VIM using the `vim` command:
 
 VIM will open in command mode. To edit a file, you need to go to insert mode by typing `i`.
 
-Now all arrow keys and alphabetical keys will behave as expected. 
+Now all arrow keys and alphabetical keys will behave as expected and you can edit test.
+
+You can only paste copied text when you are in Insert mode. To paste: right click and click Paste.  
+
+!When you paste while you are in Command mode, it may appear to work, but often only part of the text will be pasted.
 
 To exit insert mode hit the Esc key.
 
@@ -223,113 +227,88 @@ To save under a different filename `:sav testfile2`. Note that if you now contin
 
 To learn more about VIM find a beginners guide online or use this [interactive guide](https://www.openvim.com/).
 
-## Searching files
-less
+## Searching for files and text
 
-The command less writes the contents of a file onto the screen a page at a time. Type
+For this part make a new text file called `testfile2.txt` using VIM. Copy a large body of text from [here](http://www.thelatinlibrary.com/livy/liv.1.shtml) and paste it in the file. Afterwards quit VIM.
 
-% less science.txt
+The command `less` writes the contents of a file onto the screen a page at a time. 
 
-Press the [space-bar] if you want to see another page, and type [q] if you want to quit reading. As you can see, less is used in preference to cat for long files.
+Type:
+
+`less testfile2.txt`
+
+Press the space-bar if you want to see another page, and type [q] if you want to quit reading.
+ 
+Type:
+
+`head testfile2.txt`
+
+to view the first ten lines of a file to the screen.
+
+To view a smaller number (e.g. 5) of lines type:
+
+`head -5 testfile2.txt`
+
+Similarly, the tail command writes the last ten lines of a file to the screen.
+
+`tail testfile2.txt`
+
+### Simple searching using less
+
+Using less, you can search though a text file for a keyword (pattern). For example, to search through `testfile2.txt` for the word 'Romulus', type
+
+`less testfile2.txt`
+
+then, still in less, type a forward slash [/] followed by the word to search..
+
+`/Romulus`
+
+As you can see, less finds and highlights the keyword. Type `n` to search for the next occurrence of the word.
 
  
-head
+The command grep is another search option that searches files for specified words or patterns. First clear the screen, then type
 
-The head command writes the first ten lines of a file to the screen.
+`grep Romulus testfile2.txt`
 
-First clear the screen then type
+As you can see, grep has printed out quite a large body of text. It prints out each line containg the word Romulus.
 
-% head science.txt
+To search for a phrase or pattern, you must enclose it in single quotes (the apostrophe symbol). For example to search for Romulum Remumque, type
 
-Then type
-
-% head -5 science.txt
-
-What difference did the -5 do to the head command?
-
- 
-tail
-
-The tail command writes the last ten lines of a file to the screen.
-
-Clear the screen and type
-
-% tail science.txt 
-
-
-Simple searching using less
-
-Using less, you can search though a text file for a keyword (pattern). For example, to search through science.txt for the word 'science', type
-
-% less science.txt
-
-then, still in less, type a forward slash [/] followed by the word to search
-
-/science
-
-As you can see, less finds and highlights the keyword. Type [n] to search for the next occurrence of the word.
-
- 
-grep (don't ask why it is called grep)
-
-grep is one of many standard UNIX utilities. It searches files for specified words or patterns. First clear the screen, then type
-
-% grep science science.txt
-
-As you can see, grep has printed out each line containg the word science.
-
-Or has it ????
-
-Try typing
-
-% grep Science science.txt
-
-The grep command is case sensitive; it distinguishes between Science and science.
-
-To ignore upper/lower case distinctions, use the -i option, i.e. type
-
-% grep -i science science.txt
-
-To search for a phrase or pattern, you must enclose it in single quotes (the apostrophe symbol). For example to search for spinning top, type
-
-% grep -i 'spinning top' science.txt
+% grep -i 'Romulum Remumque' testfile2.txt
 
 Some of the other options of grep are:
 
+-i no case sensitivity
 -v display those lines that do NOT match
 -n precede each matching line with the line number
 -c print only the total count of matched lines
 
-Try some of them and see the different results. Don't forget, you can use more than one option at a time. For example, the number of lines without the words science or Science is
+You can use more than one option at a time, e.g:
 
-% grep -ivc science science.txt 
+`grep -in 'Romulum Remumque' testfile2.txt`
 
-find
+The `find` command searches through the directories for files and directories with a given name, date, size, or any other attribute. It is a simple command but with many options - you can read the manual by typing `man find`.
 
-This searches through the directories for files and directories with a given name, date, size, or any other attribute you care to specify. It is a simple command but with many options - you can read the manual by typing man find.
+Go to the home directory `cd ..`.
 
-To search for all fies with the extention .txt, starting at the current directory (.) and working through all sub-directories, then printing the name of the file to the screen, type
+To search for all files with the extention .txt, starting at the current directory (.) and working through all sub-directories, then printing the name of the file to the screen, type
 
-% find . -name "*.txt" -print
+`find . -name "*.txt" -print`
 
 To find files over 1Mb in size, and display the result as a long listing, type
 
-% find . -size +1M -ls 
-
+`find . -size +1k -ls`
 
 ## Filenames
 
-We should note here that a directory is merely a special type of file. So the rules and conventions for naming files apply also to directories.
+In naming files, characters with special meanings such as / * & % , should be avoided. Also, avoid using spaces within names. The safest way to name a file is to use only letters and numbers, together with _ (underscore) and . (dot).
 
-In naming files, characters with special meanings such as / * & % , should be avoided. Also, avoid using spaces within names. The safest way to name a file is to use only alphanumeric characters, that is, letters and numbers, together with _ (underscore) and . (dot).
-Good filenames 	Bad filenames
-project.txt 	project
-my_big_program.c 	my big program.c
-fred_dave.doc 	fred & dave.doc
+Good filenames 	    Bad filenames
+project.txt 	      project
+Test_1.m 	          Test 1.m
+Bert_Ernie.txt 	    Bert & Ernie.txt
 
-File names conventionally start with a lower-case letter, and may end with a dot followed by a group of letters indicating the contents of the file. For example, all files consisting of C code may be named with the ending .c, for example, prog1.c . Then in order to list all files containing C code in your home directory, you need only type ls *.c in that directory. 
-
-
+File names conventionally start with a lower-case letter, and may end with a dot followed by a group of letters indicating the contents of the file. For example, all files consisting of c code may be named with the ending .c, for example, prog1.c . Then in order to list all files containing C code in your home directory, you need only type ls *.c in that directory. 
 
 ## Usage of Matlab software
 
