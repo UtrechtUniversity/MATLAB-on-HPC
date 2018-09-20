@@ -96,7 +96,6 @@ It is recommended to time a minimal version of your computational task in order 
 It is also recommended to submit a 5 minute test of your large job before submitting the complete job. This will highlight any errors in the jobscript or in the initialization part of your script (where most errors occur typically). Jobs with a walltime of 5 minutes have priority in the que so you will find out about these errors quite quickly in this way. 
 
 
-Links / references
-[LISA getting started](https://userinfo.surfsara.nl/systems/lisa/getting-started)
-[LISA creating and running jobs](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs)
-[UBC submission of jobs](https://wiki.bioinformatics.umcutrecht.nl/bin/view/HPC/FirstTimeUsers#Submission_of_jobs)
+Links / references  
+[LISA getting started](https://userinfo.surfsara.nl/systems/lisa/getting-started)  
+[LISA creating and running jobs](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs)  
