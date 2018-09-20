@@ -109,7 +109,7 @@ UBC
 ```
 #!/bin/bash
 module load mcr/v94           # mcr version should be same as matlab version
-./myExecSerial 200 1
+./myExec 200 1
 module unload mcr/v94
 ```
 LISA
@@ -117,7 +117,7 @@ LISA
 #PBS -lnodes=1 -lwalltime=00:10:00
 module load mcr/2017b         # mcr version should be same as matlab version
 cd ./test
-./myExecSerial 200 1
+./myExec 200 1
 module unload mcr
 
 ```

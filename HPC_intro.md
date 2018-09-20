@@ -27,28 +27,28 @@ As mentioned above, all major calculations will be done on batch nodes. This mea
 
 
 **Job scripts**
+The examples below are used to submit 'myExec' (the compiled MATLAB program [Test_1.m](./Test_1.m) ), with input 200 and 1. The program is located in the directory `./test`. The program Matlab Compiler Runtime is used to run the executable. You can see that different versions are installed on the different systems. mcr/v94 is
 
 **LISA**
 ```
-#PBS -lnodes=1 -lwalltime=00:10:00
-module load mcr/2017b
-cd ./test
-./myExecSerial 200 1
-module unload mcr
+#PBS -lnodes=1:ppn=1 -lwalltime=00:10:00  # Ask for resources
+module load mcr/2017b                     # Load Matlab Compiler Runtime
+cd ./test                                 # Navigate to directory of executable
+./myExec 200 1                            # Run Executable with input: 200 and 1
+module unload mcr                         # Unload Matlab Compiler Runtime 
 ```
+
+(can give error in next job when mcr is not unloaded)
 
 **UBC**
 
 ```
-#!/bin/bash
-module load mcr/v94
-cd ./test
-./myExecSerial 200 1
-module unload mcr/v94
+#!/bin/bash                               # Tell shell to use bash interpreter
+module load mcr/v94                       # Load Matlab Compiler Runtime (has to match Matlab version that is used to compile script)
+cd ./test                                 # Navigate to directory of executable
+./myExec 200 1                            # Run Executable with input: 200 and 1
+module unload mcr/v94                     # Unload Matlab Compiler Runtime
 ```
-
-
-
 
 
 
