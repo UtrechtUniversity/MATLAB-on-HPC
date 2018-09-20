@@ -34,7 +34,7 @@ As mentioned above, all major calculations will be done on batch nodes. This mea
 module load mcr/2017b          
 cd ./test
 ./myExecSerial 200 1
-module unload mcr```  
+module unload mcr```
 
 **UBC**
 
