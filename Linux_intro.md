@@ -3,47 +3,164 @@
 Most information on this page is composed from introduction manuals at the websites of [Surfsara](https://userinfo.surfsara.nl/systems/lisa/getting-started) and [University of Surrey](http://www.ee.surrey.ac.uk/Teaching/Unix/). Check these websites for more elaborate information.
 
 ---------------------------
+
+## Commands
+
 Most PCs have a graphical user interface: you interact with your computer by clicking on files, applications, etc. Most HPC systems are operated using Unix/Linux, where you communicate through a command line interface. When logged in with SSH session to your HPC system or Docker container: Try a couple of basic commands:
 
-    `who` shows you the list of users that are currently logged in on the same node.
-    `date` shows you the current date and time.
-    `top` shows you the list of processes currently running on the node, including how much resource (cpu, memory, etc) they use. Press q to return to the command line again.
-    `ls` shows the current files in your home directory (if you just logged in for the first time, it may well be empty).
-    `mkdir [mydir]` create a directory with name 'mydir'.
-    `cd [mydir]` change directory to directory 'mydir'.
-    `logout` logs you out of the SSH session.
+`who` shows you the list of users that are currently logged in on the same node.
+`date` shows you the current date and time.
+`top` shows you the list of processes currently running on the node, including how much resource (cpu, memory, etc) they use. Press q to return to the command line again.
+`ls` shows the current files in your home directory (if you just logged in for the first time, it may well be empty).
+`mkdir [mydir]` create a directory with name 'mydir'.
+`cd [mydir]` change directory to directory 'mydir'.
+`logout` logs you out of the SSH session.
 
-If the system is running a command that you want to interrupt, you can always use ctrl+c (try it with the top command).
+In a command line session, for everything you want to do you have to use commands: to navigate between folders, to make or remove folders, to search for information or to start software. 
+
+If the system is running a command that you want to interrupt, you can always use ctrl+c (try it with the `top` command).
+
+## Navigating bewteen directories
+For naviation you basically need three commands `pwd` (print working directory), `cd` (change directory), and `ls` (list files and directories in current folder).
+
+To see in which directory you currently are type:
+
+`pwd`
+
+To see which files and folders are present in the current directory type:
+
+`ls`
+
+To make a new directory called mydir type:
+
+`mkdir mydir`
+
+Go to directory mydir
+
+`cd mydir`
+
+Type `pwd` to see the change in your directory path.
+
+To go back to the previous directory type:
+
+`cd ..`
+
+Make another directory:
+
+`mkdir mydir2`
+
+Go to this directory: 
+
+`cd mydir2`
+
+`pwd`
+
+Now go straight to the first created directory:
+
+`cd ../mydir`
+
+As you can see you don't need to jump between directories one at a time, but you can directly jump between directories if you specify the relative path. `.` means the current directory. `..` means one directory up. From there you could jump to as many next subdirectories as required e.g. `../mydir2/mydir3/mydir4` (note: as long as these subdirectories exist; mydir3 and mydir4 don't exist yet). 
+
+You can use `cd /` to go to the 'root' directory and `cd ~` to go to your home directory.
 
 
+## creating, moving and removing files and directories
+For creating, moving and removing files and directories you need the following commands: `mkdir` (create directory), `cp` (copy files and directories), `mv` (move or rename files and directories) and `rm` (remove files and directories).
+
+Go to `mydir`  
+Now first create a file: `vim testfile`  
+Now you enter text editor VIM (further explanation below).   
+Press: `i` to enter insert mode.  
+Insert some text: `some text`  
+Press `Esc` button to exit insert mode.  
+Press: `:wq` to save and quit.  
+
+Type `ls`. You will see the file named `testfile` is now present in this folder.
+
+Now create a new directory:
+`mkdir ../mydir2/mydir3`
+
+Using relative pathnames you now created directory `mydir3` in directory `..` one up and inside `/mydir2`. Type `pwd` to see that you are still working in `mydir`.
+
+Now copy `testfile` to `mydir3` (syntax: `cp <file> <destination>`)
+
+`cp testfile ../mydir2/mydir3`
+
+The file is copied to `mydir3` and also still present in the current folder, see `ls`.
+
+Now navigate to the `mydir3` using the `cd` command.
+
+When you are in `mydir3` check whether the testfile is indeed copied to the folder with `ls`.
+
+Now remove the file with the `rm` command.
+
+`rm testfile`
+
+You can also copy files from a distant folder to the current directory:
+
+`cp ../../mydir/testfile ./`
+
+Relative from my current directory, the file is two directories up, then inside the directory `mydir`. The destination is the current directory `./`.
+
+Other options for the copy command:
+`cp -i <file1> <file2>`  
+Copies the contents of file1 into file2. If file2 does not exist, it is created; otherwise, it is asked whether file2 should be overwritten with the contents of file1.
+
+`cp -R <dir1> <dir2>`  
+Copy the contents of the directory dir1. If directory dir2 does not exist, it is created. Otherwise, it creates a directory named dir1 within directory dir2.
 
 
-Commands
+It is also possible to move one or more files or directories instead of copying with the `mv` command (syntax: `mv <file1> <file2> <file3> <dir1>`).
 
-Commands with parameters (flags)
+type:
 
-Recall commands
+`mv testfile ../../mydir`
 
-After you have typed in a few commands, use the arrow-up and arrow-down keys, and you see what we mean. You can even edit previous commands by using the following keys: Backspace, Delete, arrow-left, arrow-right and of course all alphanumerical keys. Try it!
-Command completion
+now the current directory is empty and testfile is back at its original location.
 
-The shell is always willing to assist you. In general, you can type a few characters of a command or a filename followed by a 'Tab' character. The shell will then try to 'complete' the word you are typing. Very useful with long filenames, for example. This feature is a bit difficult to describe, it is better to try it out and see what happens.
+	
+Other options: Move an entire directory
+`mv <dir1> <dir2>`  
+If dir2 does not exist, then dir1 is renamed dir2. If dir2 exists, the directory dir1 is moved within directory dir2.
 
-Files and folders (directories)
+**Caution with rm command** 
+Removing a file or a folder with `rm` cannot be undone.
 
-Navigation + creating and moving files and directories*
+## Commands with parameters (flags)
+Many commands have a number of different options that can be activated with a `-` followed by a letter. E.g. `ls -l`.
+To see which options exist for a command you can open the manual:
+`man ls`.
+
+Go to the directory where `testfile` is located: `cd ../../mydir`.
+Note the difference between:
+`ls`
+`ls -l`
+
+## Recall commands
+
+You can recycle commands that you have typed earlier, which saves you a lot of time.
+After you have typed in a few commands, use the arrow-up and arrow-down keys. You can also edit previous commands by using the following keys: Backspace, Delete, arrow-left, arrow-right and of course all alphanumerical keys.
+
+## Command completion
+
+If you type enough characters of a command or a filename to help the system identify what you mean, you can press tab to let the system finish the command or filename or foldername. This will also save you a lot of time. To test go 1 directory up: `cd ..`.
+Type: `cd my` and press the tab key. The system will automatically add the letters `dir` as there are not other options. However, there are two folders that start with `mydir` (`mydir` and `mydir2`). If you want to go to `mydir2`, simply add `2` and press enter.
+
+Navigate to `mydir3` from `cd ~` as follows:
+`cd my` tab key `2/my` tab key and enter. When you have practiced a bit, this will become an automatism.
 
 
-rm 
-*asf
+## Permissions
 
-Hidden files
+Go to the directory where `testfile` is located: `cd ../../mydir`.
 
-Hidden files are used when one does not want the user to annoy with files she will probably never or seldom change herself. A file whose name starts with a dot ('.') will not be shown, and also not be the result of a filename expansion. Example, type:
-ls -a
+Type:
+`ls -l`
 
-Permissions
-chmod
+You will see the first characters will look like this:
+`-rw-------`
+
+These are the permissions the user has for the specific file.
 
 The meaning of the first four characters is:
 
@@ -64,38 +181,47 @@ The meaning of the first four characters is:
 
 Changing permission bits
 
-Changing permission bits is done with the command 'chmod' (change file mode bits), type:
+Changing permission bits is done with the command `chmod` (change file mode bits), type:
 
-chmod -x mydir
-ls -ld mydir          # notice : -ld, not -l
-cd mydir
+`chmod -w testfile`
+`ls -l`      
 
 The output should be
 
-drw------- 2 wiltest wiltest 3 2010-03-19 13:57 mydir
-bash: cd: mydir: Permission denied
+`-r--------` 
 
-Indeed, you removed the x bit an cannot cd to the directory anymore. Fix this situation with:
+Now it is not possible to change the file.
 
-chmod +x mydir
+Fix this situation with:
 
-and experiment if you can cd to the directory again.
+`chmod +w testfile`
 
-Special directories . and ..
+This becomes sometimes an issue when you copy a compiled MATLAB code to the cluster. When there is no permission to execute this file, the job refering to this file will give an error.
+Solve this by simply giving permission using the `chmod` command.
 
-These two extra directories have names: . and .. . stands for 'current directory', it is equal to the directory 'where you are'.
+`chmod +x <matlabexecutable>`
 
-.. stands for the directory in which the current directory is located. So, to go one directory back, you can type:
+## Viewing and editing text files
+VIM is a basic text editor that is used in this manual to create, edit and view text files, job scripts, MATLAB scripts etc. 
 
-cd ..
+Start VIM using the `vim` command:
 
-Also constructs like this can come in handy:
+`vim <filename>`. If the file exists, it will be opened. If it doesn't exist, a new file will be created with this name.
 
-cd ../simple
+VIM will open in command mode. To edit a file, you need to go to insert mode by typing `i`.
 
-Viewing and editing files
-VIM
+Now all arrow keys and alphabetical keys will behave as expected. 
 
+To exit insert mode hit the Esc key.
+
+In command mode you can save the file with `:w` and enter.
+To quit without saving type `:q!`
+To save and quit `:wq`
+To save under a different filename `:sav testfile2`. Note that if you now continue and make new edits in insert mode, you are still working in the initial file and not in the newfile `testfile2`. To make these edits in `testfile2` only, `:wq` and `vim testfile2`. Or keep working and save later using `:sav testfile2` again, and exit the initial file without saving `:q!`.
+
+To learn more about VIM find a beginners guide or use this [interactive guide](https://www.openvim.com/).
+
+## Searching files
 less
 
 The command less writes the contents of a file onto the screen a page at a time. Type
@@ -189,7 +315,7 @@ To find files over 1Mb in size, and display the result as a long listing, type
 % find . -size +1M -ls 
 
 
-4.2 Filename conventions
+## Filenames
 
 We should note here that a directory is merely a special type of file. So the rules and conventions for naming files apply also to directories.
 
@@ -203,8 +329,11 @@ File names conventionally start with a lower-case letter, and may end with a dot
 
 
 
-Usage of Matlab software
+## Usage of Matlab software
 
+
+./matlab
+./matlab -...
 
 
 
