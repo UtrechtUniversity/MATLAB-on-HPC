@@ -104,10 +104,10 @@ Relative from my current directory, the file is two directories up, then inside 
 
 Other options for the copy command:
 `cp -i <file1> <file2>`  
-Copies the contents of file1 into file2. If file2 does not exist, it is created; otherwise, it is asked whether file2 should be overwritten with the contents of file1.
+This command copies the contents of file1 into file2. If file2 does not exist, it is created; otherwise, it is asked whether file2 should be overwritten with the contents of file1.
 
 `cp -R <dir1> <dir2>`  
-Copy the contents of the directory dir1. If directory dir2 does not exist, it is created. Otherwise, it creates a directory named dir1 within directory dir2.
+This command copies the contents of the directory dir1. If directory dir2 does not exist, it is created. Otherwise, it creates a directory named dir1 within directory dir2.
 
 
 It is also possible to move one or more files or directories instead of copying with the `mv` command (syntax: `mv <file1> <file2> <file3> <dir1>`).
@@ -123,7 +123,8 @@ Other options: Move an entire directory
 `mv <dir1> <dir2>`  
 If dir2 does not exist, then dir1 is renamed dir2. If dir2 exists, the directory dir1 is moved within directory dir2.
 
-**Caution with rm command** 
+**Caution with rm command**
+
 Removing a file or a folder with `rm` cannot be undone.
 
 ## Commands with parameters (flags)
@@ -138,15 +139,15 @@ Note the difference between:
 
 ## Recall commands
 
-You can recycle commands that you have typed earlier, which saves you a lot of time.
-After you have typed in a few commands, use the arrow-up and arrow-down keys. You can also edit previous commands by using the following keys: Backspace, Delete, arrow-left, arrow-right and of course all alphanumerical keys.
+You can recycle commands that you have typed earlier, which saves you a lot of time.  
+After you have typed in a few commands, use the arrow-up and arrow-down keys to see previous commands. Execute a previous command by pressing Enter. You can also edit previous commands if you need to run a command which is only slightly different.
 
 ## Command completion
 
 If you type enough characters of a command or a filename to help the system identify what you mean, you can press tab to let the system finish the command or filename or foldername. This will also save you a lot of time. To test go 1 directory up: `cd ..`.
 Type: `cd my` and press the tab key. The system will automatically add the letters `dir` as there are not other options. However, there are two folders that start with `mydir` (`mydir` and `mydir2`). If you want to go to `mydir2`, simply add `2` and press enter.
 
-Navigate to `mydir3` from `cd ~` as follows:
+Navigate to `mydir3` from `cd ~` as follows:  
 `cd my` tab key `2/my` tab key and enter. When you have practiced a bit, this will become an automatism.
 
 
@@ -158,26 +159,27 @@ Type:
 `ls -l`
 
 You will see the first characters will look like this:
+
 `-rw-------`
 
 These are the permissions the user has for the specific file.
 
 The meaning of the first four characters is:
 
- 1 '-': it is a normal file
-   2 '-': the owner cannot read the file
-     'r': the owner can read the file
-   3 '-': the owner cannot change the file
-     'w': the owner can change the file
-   4 '-': the owner cannot execute the file
-     'x': the owner can execute the file
- 1 'd': it is a directory
-   2 '-': the owner cannot read the directory: ls does not work
-     'r': the owner can read the directory: ls works
-   3 '-': the owner cannot create or delete files in that directory
-     'w': the owner can create or delete files in that directory
-   4 '-': the owner cannot cd to the directory
-     'x': the owner can cd to the directory
+ 1 '-': it is a normal file  
+   2 '-': the owner cannot read the file  
+     'r': the owner can read the file  
+   3 '-': the owner cannot change the file  
+     'w': the owner can change the file  
+   4 '-': the owner cannot execute the file  
+     'x': the owner can execute the file  
+ 1 'd': it is a directory  
+   2 '-': the owner cannot read the directory: ls does not work  
+     'r': the owner can read the directory: ls works  
+   3 '-': the owner cannot create or delete files in that directory  
+     'w': the owner can create or delete files in that directory  
+   4 '-': the owner cannot cd to the directory  
+     'x': the owner can cd to the directory  
 
 Changing permission bits
 
@@ -219,7 +221,7 @@ To quit without saving type `:q!`
 To save and quit `:wq`
 To save under a different filename `:sav testfile2`. Note that if you now continue and make new edits in insert mode, you are still working in the initial file and not in the newfile `testfile2`. To make these edits in `testfile2` only, `:wq` and `vim testfile2`. Or keep working and save later using `:sav testfile2` again, and exit the initial file without saving `:q!`.
 
-To learn more about VIM find a beginners guide or use this [interactive guide](https://www.openvim.com/).
+To learn more about VIM find a beginners guide online or use this [interactive guide](https://www.openvim.com/).
 
 ## Searching files
 less
