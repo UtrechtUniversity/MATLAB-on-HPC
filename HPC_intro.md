@@ -29,20 +29,24 @@ As mentioned above, all major calculations will be done on batch nodes. This mea
 **Job scripts**
 
 **LISA**
-
-```#PBS -lnodes=1 -lwalltime=00:10:00
-module load mcr/2017b          
+```
+#PBS -lnodes=1 -lwalltime=00:10:00
+module load mcr/2017b
 cd ./test
 ./myExecSerial 200 1
-module unload mcr```
+module unload mcr
+```
 
 **UBC**
 
-```#!/bin/bash
+```
+#!/bin/bash
 module load mcr/v94
 cd ./test
 ./myExecSerial 200 1
-module unload mcr/v94```
+module unload mcr/v94
+```
+
 
 
 
