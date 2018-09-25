@@ -46,13 +46,13 @@ Here you can create and remove virtual machines, turn virtual machines on and of
 
 Depending on your version, upon installation of Docker software a machine called 'default' will be created. This default machine has a certain number of cores (CPUs), memory size (RAM) and storage size.
 
-To check if there already exists a virtual machine on you PC type:
+To check if there already exists a virtual machine on you PC, type:
 
 `docker-machine ls`
 
 If a virtual machine exists, you will see something like this:
 
-NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS
+NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS  
 default   -        virtualbox   Stopped                 Unknown
 
 If you have used Docker before you may have more machines listed here.
