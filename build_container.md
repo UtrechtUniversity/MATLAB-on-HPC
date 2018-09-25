@@ -47,7 +47,7 @@ Use Windows command line for this step
 
 Make sure you are in the directory where the “Dockerfile” is located.
  
-Choose a name for the docker image and type the following docker command (replace ubuntu_uu_sshd with your container name or use ubuntu_uu_sshd as below):
+Choose a name for the docker image and type the following docker command (replace ubuntu_uu_sshd with any image name or use ubuntu_uu_sshd as below):
 
 ```
 > docker build -t ubuntu_uu_sshd .  	(note: the . is part of the command)
