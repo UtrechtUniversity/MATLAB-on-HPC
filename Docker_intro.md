@@ -59,7 +59,7 @@ default   -       virtualbox   Stopped                 Unknown
 
 If you have used Docker before you may have more machines listed here.
 
-We recommend creating an as clean as possible workflow to reduce potential sources of errors. Therefore we recommend having only one default machine that has enough storage and RAM to run MATLAB smoothly and that has more than 1 CPUs to be able to test parallel commands, and removing all others.  
+We recommend creating an as clean as possible workflow to reduce potential sources of errors. Therefore we recommend having only one default machine (that has enough storage and RAM to run MATLAB smoothly and that has more than 1 CPUs to be able to test parallel commands), and removing all other machines.  
 
 On Windows 10 PRO the 'default' machine is created by Hyper V which is installed in Windows by default. Here it is possible to change the characteristics of a machine manually: see the Docker Settings dialog part on [this page](https://docs.docker.com/docker-for-windows/#advanced).
 To create a virtual machine from command line see [this page](https://docs.docker.com/machine/drivers/hyper-v/#2-set-up-a-new-external-network-switch-optional).
