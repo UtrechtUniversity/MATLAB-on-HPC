@@ -52,8 +52,10 @@ To check if there already exists a virtual machine on you PC, type:
 
 If a virtual machine exists, you will see something like this:
 
-NAME      ACTIVE   DRIVER       STATE     URL   SWARM   DOCKER    ERRORS  
-default   -        virtualbox   Stopped                 Unknown
+```
+NAME      ACTIVE  DRIVER       STATE     URL   SWARM   DOCKER    ERRORS  
+default   -       virtualbox   Stopped                 Unknown
+```
 
 If you have used Docker before you may have more machines listed here.
 
