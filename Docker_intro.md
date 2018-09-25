@@ -177,7 +177,13 @@ docker login
 
 With `docker push` you can put an image in your 'private' repository. It is not necessary to do this (as you can also keep working with locally saved images), but it can be a handy to have a back up of a good working image. If you want to share the image with others, you can change the repository to 'public'.
 
-`docker push <hub username>/<repository name>:<tag>`
+Before pushing the image, first tag the image (to check the image name and tag use the `docker images` command)
+
+`docker tag <image name>:<tag> <hub username>/<repository name>:<tag2>`
+
+At `tag2` you may assign a new name tag.
+
+`docker push <hub username>/<repository name>:<tag2>`
 
 To run this command you should create an account first and create a repository on Docker hub. 
 
