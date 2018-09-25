@@ -1,7 +1,7 @@
 
 # Part 1: Create a virtual machine and install Matlab
 
-When you are working on Windows or Mac, we recommend installing a Docker container with a Linux operating system and MATLAB on your computer to compile MATLAB code, as code has to be compiled on a linux system in order to be compatible with HPC. The steps to install this container with a MATLAB installation for Linux are described here. If you already have MATLAB running under Linux you can go to [Part 2](./Part-2-running-matlab.md). Backgrounds about Docker software and basic commands can be found [here](./Docker_intro.md).
+When you are working on Windows or Mac, we recommend installing a Docker container with a Linux operating system and MATLAB on your computer to compile MATLAB code, as code has to be compiled on a linux system in order to be compatible with HPC. The steps to install this container with a MATLAB installation for Linux are described here. If you already have the required MATLAB version running under Linux you can go to [Part 2](./Part-2-running-matlab.md). Backgrounds about Docker software and basic commands can be found [here](./Docker_intro.md).
 
 This part of the workflow is all preparation. The steps in this part only need to be executed once.
 
@@ -63,7 +63,7 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 > docker search uumatlabinstall
 ```
 
-Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command; see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)), if this is the first time you use Linux or login to a cluster. The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. 
+Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
 Pull the image that you need by typing e.g.:
 

@@ -27,6 +27,8 @@ RUN apt-get update && apt-get install -y openssh-server
 RUN apt-get update && apt-get install -y vim
 RUN apt-get install –y unzip
 RUN apt-get install –y xorg
+RUN mkdir /matlab
+COPY matlab_R2018a_glnxa64.zip /matlab
 RUN mkdir /var/run/sshd
 RUN echo 'root:wijzigen' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -40,6 +42,14 @@ CMD ["/usr/sbin/sshd", "-D"]
 Note:
 This Dockerfile is used to create an Ubuntu 16.04 image with ssh access, and the following programs installed: vim, unzip and xorg.
 Ubuntu login: "Root" password: "wijzigen".
+It also puts the matlab installer in the container. In the dockerfile contents change the matlab version if you downloaded an installer that is not 2018a.
+If you get an error in the COPY step, it is also possible to transfer files manually (see: Optional step 5). In that case you can remove these lines:
+
+```
+RUN mkdir /matlab
+COPY matlab_R2018a_glnxa64.zip /matlab
+```
+
 
 ## Step 3: Make a Docker container
 
@@ -74,11 +84,11 @@ Before downloading, make sure which version of MATLAB compiler runtime (MCR) is 
 
 Save the installer file (e.g. matlab_R2018a_glnxa64.zip) on your computer in the newly created folder from step 1.
 
-## Step 5: copy the Linux MATLAB installer to the running Docker container
+## Optional step 5: copying the Linux MATLAB installer to the running Docker container manually
 
-Make sure you are in the directory of the matlab installer file (using >dir).
+Make sure you are in the directory of the matlab installer file (using `dir` and `cd` commands).
  
-Copy the file to the (running) matlabjt container:
+Copy the file to the (running) container:
 
 ```
 > docker cp matlab_R2018a_glnxa64.zip matlabuu:matlab_R2018a_glnxa64.zip
@@ -105,30 +115,9 @@ Click OK to start the session
 When you are asked for a password, fill in:  
 Password: wijzigen
 
-## Step 7: Move the MATLAB installer
+## Step 7: Moving and editing files
 
-Use the SSH session in MobaXterm for this step.
-
-Check whether the installer file is in the container: 
-```
-# ls / -al
-```
-Go to root directory:
-```
-# cd /
-```
-Make a new directory, e.g. /matlab:
-```
-# mkdir matlab
-```
-Go to the new directory:
-```
-# cd matlab
-```
-Move the MATLAB installer to the current directory:
-```
-# mv /matlab_R2018a_glnxa64.zip /matlab
-```
+When in an SSH session in MobaXterm it is possible to move and edit files and folders using Linux commands, see this [manual](./Linux_intro).
 
 To install MATLAB continue with [Part 1: Step 7](./Part-1-preparation.md)
 

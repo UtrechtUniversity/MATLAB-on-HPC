@@ -80,9 +80,10 @@ If the STATE of the machine is Running you can stop the machine by typing:
 
 `docker-machine stop default`
 
-When switching between machines you need to run 2 commands for switching the 'environment':
+When switching between machines you need to run 2 commands after the `docker-machine start` command for switching the 'environment':
 
 ```
+docker-machine start default
 docker-machine env default
 @FOR /f "tokens=*" %i IN ('docker-machine env default') DO @%i
 ```
@@ -99,7 +100,7 @@ For a full introduction, the user is referred to the website of Docker. The [Ove
 There are two terms that we use a lot when talking about Docker: 'Docker Image' and 'Docker Container'.
 The [Overview](https://docs.docker.com/engine/docker-overview/) page of Docker gives good definitions of these terms.
 
-**Docker Image**
+**Docker Image**  
 *"An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.*
 
 *You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies."*
@@ -126,7 +127,7 @@ To further clean up your docker session. E.g. when you keep running into errors,
 `docker system prune -a` 	(remove archived images)
 
 
-**Docker Container**
+**Docker Container**  
 *"A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI. You can connect a container to one or more networks, attach storage to it, or even create a new image based on its current state.*
 
 *By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container’s network, storage, or other underlying subsystems are from other containers or from the host machine.*
@@ -137,27 +138,28 @@ To create a container from an image you need to use the [`docker run`](https://d
 Here you also specify which ports are used for communication. Different installations use different ports for the virtual machine:
 
 Docker CE installation:
-`docker run -d -p **22**:22  --name <container name> <image name>`
+`docker run -d -p 22:22  --name <container name> <image name>`
 
 Docker Toolbox installation
-`docker run -d -p **23**:22  --name <container name> <image name>`
+`docker run -d -p 23:22  --name <container name> <image name>`
 
 After running this command the container is up and running and you can start working with the container. At the end of a session you can stop the container and when you start a new session you can use the `docker start` command to start it again.
 
 Useful commands:
 To list all containers:
 
-`docker container ls --all`
-`docker container ls`
+`docker container ls`         (lists running containers)
+`docker container ls --all`   (lists all (running and not running containers)
 
-To stop a container:
+
+To stop a container:  
 `docker stop <container name>` 
 
-To start a container:
+To start a container:  
 `docker start <container name>`	
 
-To remove a container:
-`docker rm <container name>`		(remove container:  ! warning all changes to container will also be removed) 
+To remove a container:  
+`docker rm <container name>`		(remove container:  ! warning, this cannot be undone, all your work in this container will be lost) 
 
 When a container is running you can operate it using an [SSH session](./ssh.md) in MobaXterm. In our case the container runs a [Linux operating system](./Linux_intro.md) so you operate the container from a command line in MobaXterm. From there you can do everything you can also do on a Linux computer: manage files and folders, as well as running software. Here you install a Linux version of MATLAB and run and compile MATLAB code.
 
@@ -166,10 +168,12 @@ When a container is running you can operate it using an [SSH session](./ssh.md) 
 Docker Images can be shared on repositories such as [Docker Hub](https://hub.docker.com/).
 On the Docker Hub website you can make an account and create Private and Public repositories.
 
-Via Windows Command Prompt you can connect to your account to access your private repositories.
-`docker login`
-`<username>`
-`<password>`
+Via Windows Command Prompt you can connect to your account to access your private repositories.  
+```
+docker login
+<username>  
+<password>
+```
 
 With `docker push` you can put an image in your 'private' repository. It is not necessary to do this (as you can also keep working with locally saved images), but it can be a handy to have a back up of a good working image. If you want to share the image with others, you can change the repository to 'public'.
 
