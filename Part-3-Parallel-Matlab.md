@@ -6,23 +6,27 @@ To make a script compatible for HPC you basically need to make 2 changes.
 
 1. The main script should be structured and saved as a function.
 
-2. Any input variables that are passed assigned outside this function and passed when calling the main function are passed as characters and need to be converted to numeric.
+2. Any input variables that are assigned outside this function and passed when calling the main function are passed as characters and need to be converted to numeric.
 
 Example:
 
 ```
-function m = examplescript (n)  % Create function
+function m = examplescript (n)          % Create function
 
-if (isstr(n))                   % Convert function input
-  n = str2num(n);               % Convert function input
-end                             % Convert function input
+if (isstr(n))                           % Convert function input
+  n = str2num(n);                       % Convert function input
+end                                     % Convert function input
 
-m = magic(n);                   % Main body of script
-disp(m)                         % Main body of script
+load examplefile.mat                    % Load input data
 
-end                             % End of function
+m = l*rand(1,n);                        % Main body of script
+disp(m)                                 % Main body of script
+
+save(fullfile(pwd,'outputfile.mat'));   % Save output data
+
+end                                     % End of function
 ```
-The output m will be printed as text in the output file of the HPC job. To save variable or the entire workspace for future analyses, use the save command and save e.g. as .mat file.
+The output m will be printed as text in the output file of the HPC job. Using the save command the entire workspace is saved as .mat file for future analyses.
 
 To be compatible with HPC, scripts have to be translated to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command. Compiling the above script can be done as follows.
 
@@ -44,11 +48,29 @@ which means: display the compilation steps.
 
 which is used to specify the name of the final executable.
 
+Input data (`examplefile.mat`) is not required as input to the `mcc` command. However, when submitting the executable on HPC, input files should be located in the same folder as the executable. If you have many input files it may be more efficient to add the files to the `mcc` command (see below).
+
+In a job submission file one would type the name of the executable to run it. The function `examplescript` above requires one input variable: `n`. In a job submission file you would pass this variable as follows:
+```
+./myexample 10
+```
+where `n` is now 10. 
+
+The script and input data can be found here if you would like to test this example:
+
+[Examplescript](./examplescript.m)
+[Input data](./examplefile.mat)
+
+For more information about job submission files see [introduction to HPC](./HPC_intro.md).
+
+
+### Compiling multiple .m files and files located in subdirectories
+
 If you compile a script that calls different (non built-in) functions, these need to be specified as well directly after the main script.
 ```
 ../mcc -mv -o myexample examplescript.m examplescript2.m
 ```
-If there are a large number of scripts that are called it can help to put them in a folder and add this folder using the ```-a``` option:
+If there are a large number of scripts and/or input data files that are called from the main script it may be easier to put them in a folder and add this folder using the ```-a``` option:
 ```
 ../mcc -mv -o examplefolder examplescript.m -a ./examplefolder
 ```

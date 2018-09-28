@@ -70,7 +70,7 @@ Save the script as ```Test_1.m```
 
 Type ```exit``` to close MATLAB.
 
-For instructions on how to adapt your own scripts to
+For instructions on how to adapt your own scripts to see [Part 3](./Part-3-Parallel-Matlab.md).
 
 ## Step 4: Compile and send to HPC
 
