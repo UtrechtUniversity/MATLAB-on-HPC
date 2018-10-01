@@ -303,10 +303,10 @@ To find files over 1Mb in size, and display the result as a long listing, type
 
 In naming files, characters with special meanings such as / * & % , should be avoided. Also, avoid using spaces within names. The safest way to name a file is to use only letters and numbers, together with _ (underscore) and . (dot).
 
-Good filenames 	    Bad filenames  
-project.txt 	      project  
-Test_1.m 	          Test 1.m  
-Bert_Ernie.txt 	    Bert & Ernie.txt  
+Good filenames      Bad filenames  
+project.txt         project  
+Test_1.m            Test 1.m  
+Bert_Ernie.txt      Bert & Ernie.txt  
 
 File names may end with a dot followed by a group of letters indicating the contents of the file. For example, all files consisting of c code may be named with the ending .c, for example, prog1.c . Then in order to list all files containing C code in your home directory, you need only type ls *.c in that directory. 
 
