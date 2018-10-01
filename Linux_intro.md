@@ -64,7 +64,7 @@ As you can see you don't need to jump between directories one at a time, but you
 You can use `cd /` to go to the 'root' directory and `cd ~` to go to your home directory.
 
 
-## creating, moving and removing files and directories
+## Creating, moving and removing files and directories
 For creating, moving and removing files and directories you need the following commands: `mkdir` (create directory), `cp` (copy files and directories), `mv` (move or rename files and directories) and `rm` (remove files and directories).
 
 Go to `mydir`  
@@ -137,9 +137,9 @@ Note the difference between:
 `ls`
 `ls -l`
 
-## Recall commands
+## Repeat commands
 
-You can recycle commands that you have typed earlier, which saves you a lot of time.  
+You can recycle commands that you have typed earlier, which saves a lot of time.  
 After you have typed in a few commands, use the arrow-up and arrow-down keys to see previous commands. Execute a previous command by pressing Enter. You can also edit previous commands if you need to run a command which is only slightly different.
 
 ## Command completion
@@ -274,14 +274,14 @@ As you can see, grep has printed out quite a large body of text. It prints out e
 
 To search for a phrase or pattern, you must enclose it in single quotes (the apostrophe symbol). For example to search for Romulum Remumque, type
 
-% grep -i 'Romulum Remumque' testfile2.txt
+`grep -i 'Romulum Remumque' testfile2.txt`
 
 Some of the other options of grep are:
 
--i no case sensitivity
--v display those lines that do NOT match
--n precede each matching line with the line number
--c print only the total count of matched lines
+`-i` no case sensitivity  
+`-v` display those lines that do NOT match  
+`-n` precede each matching line with the line number  
+`-c` print only the total count of matched lines  
 
 You can use more than one option at a time, e.g:
 
@@ -303,10 +303,10 @@ To find files over 1Mb in size, and display the result as a long listing, type
 
 In naming files, characters with special meanings such as / * & % , should be avoided. Also, avoid using spaces within names. The safest way to name a file is to use only letters and numbers, together with _ (underscore) and . (dot).
 
-Good filenames 	    Bad filenames
-project.txt 	      project
-Test_1.m 	          Test 1.m
-Bert_Ernie.txt 	    Bert & Ernie.txt
+Good filenames 	    Bad filenames  
+project.txt 	      project  
+Test_1.m 	          Test 1.m  
+Bert_Ernie.txt 	    Bert & Ernie.txt  
 
 File names may end with a dot followed by a group of letters indicating the contents of the file. For example, all files consisting of c code may be named with the ending .c, for example, prog1.c . Then in order to list all files containing C code in your home directory, you need only type ls *.c in that directory. 
 
