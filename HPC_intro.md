@@ -28,7 +28,7 @@ As mentioned above, all major calculations will be done on batch nodes. This mea
 
 ### Job scripts
 
-At job script can be created with a text editor such as VIM (see [Introduction to Linux](./Linux_intro.md) ). 
+A job script can be created with a text editor such as VIM (see [Introduction to Linux](./Linux_intro.md) ). 
 The examples below are used to submit 'myExec' (the compiled MATLAB program [Test_1.m](./Test_1.m) ), with input 200 and 1. 
 
 **LISA**
@@ -53,7 +53,7 @@ module unload mcr/v94                     # Unload Matlab Compiler Runtime
 ```
 save as: `jobscript.sh`
 
-The program is located in the directory `./test`. The program Matlab Compiler Runtime (MCR) is used to run the executable. You can see that different versions are installed on the different systems. The MCR version has to match the MATLAB version that is used to compile the MATLAB program. `mcr/v94` is the version belonging to MATLAB R2018a. You can check which versions of MCR are available using the `module avail` command. The 'module' `mcr` should be unloaded at the end of the job script. It can give errors in your next job when `mcr` is not unloaded in the previous job, or if there was an error in the previous job before unloading `mcr`. In the LISA job script, resources are requested in the first line. `-lnodes=1:ppn=1` means 1 node is requested, with 1 processor per node (ppn=1). 1 node is the maximum for running MATLAB. The maximum number of processors per node depends on the system (16 at LISA). `-lwalltime=00:10:00` means a maximum of 10 minutes is reserved on the assigned node. 
+In this case, the compiled matlab script (`myExec`) is located in the directory `./test`. The program Matlab Compiler Runtime (MCR) is used to run the executable. You can see that different versions are installed on the different systems. The MCR version has to match the MATLAB version that is used to compile the MATLAB program. `mcr/v94` is the version belonging to MATLAB R2018a. You can check which versions of MCR are available using the `module avail` command. The 'module' `mcr` should be unloaded at the end of the job script. It can give errors in your next job when `mcr` is not unloaded in the previous job, or if there was an error in the previous job before unloading `mcr`. In the LISA job script, resources are requested in the first line. `-lnodes=1:ppn=1` means 1 node is requested, with 1 processor per node (ppn=1). 1 node is the maximum for running MATLAB. The maximum number of processors per node depends on the system (16 at LISA). `-lwalltime=00:10:00` means a maximum of 10 minutes is reserved on the assigned node. 
 On UBC resources are requested when submitting the job script.  
 When you use many or large input files, it may be beneficial to use scratch space. See instructions how to specify this in your jobscript for LISA [here](https://userinfo.surfsara.nl/systems/lisa/user-guide/creating-and-running-jobs).
 
