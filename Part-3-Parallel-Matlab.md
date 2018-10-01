@@ -34,7 +34,7 @@ To be compatible with HPC, scripts have to be translated to machine language usi
 ../mcc -mv -o myexample examplescript.m
 ```
 
-A couple of obtions are activated in the command:
+A couple of obtions are activated with the command:
 
 ```-m```
 
@@ -74,7 +74,7 @@ If there are a large number of scripts and/or input data files that are called f
 ```
 ../mcc -mv -o examplefolder examplescript.m -a ./examplefolder
 ```
-```-a ./examplefolder``` will include all files in the ```examplefolder``` and files in subfolders of ```examplefolder```.
+```-a ./examplefolder``` will include all files in the ```examplefolder``` and files in subfolders of ```examplefolder``` in the compilation process.
 
 To include only matlabscript that are inside ```examplefolder``` use:
 
