@@ -64,9 +64,9 @@ In MATLAB, first navigate to the ‘test’ folder in your workspace.
 
 Then open an empty script.
 
-Copy the script [Test_1](./Test_1.m) and paste it in the editor.
+Copy the script [test_1](./test_1.m) and paste it in the editor.
 
-Save the script as ```Test_1.m```
+Save the script as ```test_1.m```
 
 Type ```exit``` to close MATLAB.
 
@@ -80,7 +80,7 @@ Now compile (translate) the script to machine language using the [mcc](https://n
 
 ```
 #../mcc -mv -o myExec test_1.m
-# ls
+# ls -al
 ```
 myExec is the compiled program and should now be listed in the folder.
 
@@ -90,7 +90,7 @@ Copy both files to cluster using the scp command or manually.
 # scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 ```
 ! This command does not work directly when copying to the UBC cluster as an SSH connection should be established using key pairs.
-For more background on how to transfer data see [Intro SSH & SCP](./ssh.md)
+For more background on how to transfer data to UBC by establishing SSH/SCP connections see [Intro SSH & SCP](./ssh.md)
 
 ## Step 5: Submit job 
 
@@ -195,4 +195,3 @@ to stop the virtual machine.
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
 [Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md)  
-[MATLAB Test script 1](./Test_1.m)  
