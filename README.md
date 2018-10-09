@@ -15,7 +15,7 @@ To decide whether or not to start with HPC as a researcher can be difficult. The
 
 **Costs**  
 You have to invest time in order to learn how to manage your scripts, your data and operate the HPC system. How much time this is difficult to say and depends on previous experience with HPC, Linux, SSH connections, etc.
-This manual is suitable for different entry levels and is composed of different components.  
+This manual is suitable for different entry levels, from beginners to advanced users) and is composed of different (optional) components.  
 An experienced user can run through the step-by-step instruction (probably within a half day). New users can make use of the different introductory manuals that are linked to during the step-by-step instructions (to go through all manuals will probably cost a couple of days). Beginning users may lose some more time solving issues during daily usage of the HPC system.  
 Note that you also need an (paid) account for the clusters. It may take some time before everything is approved and you can login. 
 
@@ -28,7 +28,7 @@ Scan [this page](./Part-3-Parallel-Matlab.md) for backgrounds of parallelization
 Researchers at Utrecht University typically perform their calculations at the [UBC cluster](https://wiki.bioinformatics.umcutrecht.nl/bin/view/HPC/WebHome) or at [SURFsara](https://userinfo.surfsara.nl/). This guide presents a step-by-step workflow to make it possible to run your MATLAB script on both clusters.  
 In some of the steps links are provided to introductory text to learn more about the backgrounds when required.
 
-Below you find links to the different parts of the workflow we recommend.
+Below you find links the guides to setup the workflow that we are recommending.
 Part 1 describes all preparatory steps regarding installation of software and only need to be performed once.
 Part 2 describes the steps that are used for running code on HPC on a regular basis. 
 Part 3 provides examples of ways to parallelize MATLAB code and make full use of HPC.
