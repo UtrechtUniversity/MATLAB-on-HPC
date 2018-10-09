@@ -5,6 +5,10 @@ When you are working on Windows or Mac, we recommend installing a Docker contain
 
 This part of the workflow is all preparation. The steps in this part only need to be executed once.
 
+## Step 0: Obtaining an account
+
+Before walking through this manual you need to obtain an account for HPC. Contact [Research and Data management](https://www.uu.nl/en/research/research-data-management/contact-us) at the UU to discuss options. Or visit the websites of [Surfsara](https://userinfo.surfsara.nl/systems/lisa/account) or [UBC](https://wiki.bioinformatics.umcutrecht.nl/HPC).
+
 ## Step 1: Install Docker software on PC (Windows 10 Home)
 
 Step 1: Install Docker software on PC (Windows 10 Home)
@@ -38,12 +42,12 @@ Type the following command:
 ```
 Now we have a new virtual machine with the name default.
 
-Type the following command:
+Verify that docker is correctly installed and running by typing the following command:
 
 ```
 > docker version 
 ```
-Information should be displayed for Docker Client and for Docker Server.
+Version information should be displayed for Docker Client and for Docker Server.
 
 Now type the following commands to set the docker environment to the newly created machine:
 
@@ -63,12 +67,12 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 > docker search uumatlabinstall
 ```
 
-Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
+**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
 Pull the image that you need by typing e.g.:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:matlab2018a
+> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
 ```
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
@@ -78,13 +82,13 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:matlab2018a
+> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
 ```
 
-Verify if the container named matlabjt is running:
+Verify if the container named matlabuu is running:
 
 ```
-> docker ps
+> docker ps -a
 ```
 
 ## Step 6: Start SSH session to Docker container (user: root)
@@ -167,9 +171,59 @@ Select toolboxes required for compilation and parallelization (Matlab compiler &
 
 When the installer has finished you are ready to start MATLAB.
 
-Go to [part 2](./Part-2-running-matlab.md)
 
 
+If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
+
+
+## Starting and ending a Docker session 
+
+Here are some useful commands for ending and starting docker sessions, e.g. when you want to stop here and proceed with part 2 another time:
+
+**Ending a session:**
+
+End your ssh session to the Docker container in MobaXterm by typing ```# exit``` and press return.
+
+To end the running container type in Windows Command Prompt:
+```
+> docker stop <container name>
+```
+e.g.
+```
+> docker stop matlabuu
+
+```
+To stop the virtual machine, type:
+```
+> docker-machine stop default
+```
+
+
+**Starting a session:**
+
+To start a session start Windows command prompt and type:
+```
+> docker-machine start default
+```
+Now wait a while for the the virtual machine to start.
+
+Verify that docker is correctly installed and running by typing the following command:
+
+```
+> docker version 
+```
+Version information should be displayed for Docker Client and for Docker Server.
+
+Next start the container by typing:
+
+`docker start <container name>`	
+
+You can use the following command to see if the container is stopped or started: 
+
+```
+docker ps -a
+```
+More information about Docker and Docker commands can be found [here](./Docker_intro.md) or in the official [Docker documentation](https://docs.docker.com/).
 
 ## Links
 
