@@ -1,6 +1,6 @@
 # What is a cluster computer
 
-Most information on this page is composed from introduction manuals at the websites of Surfsara and is slightly adapted for general application. For a more elaborate manual, visit their [website](https://userinfo.surfsara.nl/systems/lisa/getting-started).
+Most information on this page is composed from introduction manuals at the website of Surfsara and is slightly adapted for general application. For a more elaborate manual, visit their [website](https://userinfo.surfsara.nl/systems/lisa/getting-started).
 The website of [Surfsara](https://userinfo.surfsara.nl/systems/lisa/getting-started) has a perfect explanation of what a HPC cluster is:
 
 _"You can imagine a cluster computer as a collection of regular computers (known as nodes), tied together with network cables that are similar to the network cables in your home or office. Each node has its own CPU, memory and disk space, in addition to which they generally have access to a shared file system. On a cluster computer, you can run hundreds of computational tasks simultaneously._
