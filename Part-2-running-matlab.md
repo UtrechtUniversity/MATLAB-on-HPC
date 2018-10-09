@@ -1,6 +1,6 @@
 
 
-# Part 2: Running MATLAB on a virtual machine.
+# Part 2: Running MATLAB in a Docker container.
 
 When you just finished the Part 1 of this manual, your virtual machine is already running and you are ready to run MATLAB. You can continue with Part 2: step 2. Each next time you want to start MATLAB on the virtual machine, you need to start up the virtual machine first.
 
@@ -162,17 +162,7 @@ End your ssh session to HPC in MobaXterm by typing ```# exit``` and press return
 
 End your ssh session to the Docker container in MobaXterm by typing ```# exit``` and press return.
 
-In windows command line type 
-```
-> docker stop matlabuu
-```
-to stop the container.
-
-In windows command line type 
-```
-> docker-machine stop default
-```
-to stop the virtual machine.
+Further, stop the container and virtual machine as explained in Part 1: [Windows 10 Pro](./Part-1-Windows10.md), [Windows 10 Home](./Part-1-Windows10Home.md).
 
 ## Links
 
