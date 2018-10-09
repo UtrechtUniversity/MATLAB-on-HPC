@@ -7,28 +7,14 @@ When you just finished the Part 1 of this manual, your virtual machine is alread
 ## Step 1: start your virtual machine
 Start a windows command line session.
 
-Using command line, navigate to the directory where Docker is installed.
+Start your virtual machine following the directions in the last sections of Part 1: [Windows 10 Pro](./Part-1-Windows10.md), [Windows 10 Home](./Part-1-Windows10Home.md).
 
-e.g.
+Verify that docker is running correctly by typing the following command:
 
 ```
-...> cd /
-C:\> cd Program Files/Docker Toolbox
+> docker version 
 ```
-
-Type: 
-```
-> docker-machine ls
-```
-to see which machines are available. 
-
-The machine named default should be visible. 
-
-Type: 
-```
-> docker-machine start default
-``` 
-to start the virtual machine.
+Version information should be displayed for Docker Client and for Docker Server.
 
 Next, start the container by typing:
 
