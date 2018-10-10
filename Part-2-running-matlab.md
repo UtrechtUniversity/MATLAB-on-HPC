@@ -65,7 +65,8 @@ Use the SSH session to Docker container in MobaXterm for this step.
 Now compile (translate) the script to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
-#../mcc -mv -o myExec test_1.m
+# cd test
+# ../mcc -mv -o myExec test_1.m
 # ls -al
 ```
 myExec is the compiled program and should now be listed in the folder.

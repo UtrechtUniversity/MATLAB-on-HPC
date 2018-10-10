@@ -120,16 +120,16 @@ Recommended software for SSH is MobaXterm, available at https://mobaxterm.mobate
 Open MobaXterm
 Start an SSH session: Click Session > SSH
 
-Fill in the following fields:   
-Remote host: localhost       	
-Username: root     	
-Port: 22 (or 23 if so specified in the previous step)   
+Fill in the following fields:  
+Remote host: `localhost`  
+Username: `root`  
+Port: `22` (or 23 if so specified in the previous step)  
 
 Under Bookmark settings, choose a session name (e.g. Docker).
 
 Click OK to start the session  
 When you are asked for a password, fill in:  
-Password: wijzigen
+Password: `wijzigen`
 
 
 ## Step 7: Activate display forwarding in Docker container

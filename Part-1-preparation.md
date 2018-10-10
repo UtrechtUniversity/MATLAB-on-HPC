@@ -14,25 +14,19 @@ Before walking through this manual you need to obtain an account for HPC. Contac
 There are different versions of Docker available for different operating systems. 
 The different Docker installations come with slightly different instructions so we created separate manuals for:
 
-[Windows 10 Pro](./Part-1-Windows10.md)
+Part 1: [Windows 10 Pro](./Part-1-Windows10.md)
 
-[Windows 10 Home](./Part-1-Windows10Home.md)
+Part 1: [Windows 10 Home](./Part-1-Windows10Home.md)
 
-[Mac](./Part-1-Mac.md)
+Part 1: [Mac](./Part-1-Mac.md)
 
-To check whether you work under Windows 10 **Pro** or **Home** version:
-
-press: Windows key + i 
+To check whether you work under Windows 10 **Pro** or **Home** version press: Windows key + i 
 
 A new window opens
 
-Go to: 
+Go to: "System"
 
-"System"
-
-And click:
-
-"About"
+And click: "About"
 
 
 ## Links
@@ -40,8 +34,8 @@ And click:
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
-[Intro SSH & SCP](./ssh.md)  
+[Intro SSH & SCP](./ssh.md)
 [Parallelization of MATLAB scripts](./matlab.md)  
-[MATLAB Test script 1](./Test_1.m)  
+[MATLAB Test script 1](./test_1.m)  
 
 
