@@ -14,13 +14,13 @@ Before walking through this manual you need to obtain an account for HPC. Contac
 There are different versions of Docker available for different operating systems. 
 The different Docker installations come with slightly different instructions so we created separate manuals for:
 
-Part 1: [Windows 10 Pro](./Part-1-Windows10.md)
+Part 1: [Windows 10 Enterprise](./Part-1-Windows10.md)
 
 Part 1: [Windows 10 Home](./Part-1-Windows10Home.md)
 
 Part 1: [Mac](./Part-1-Mac.md)
 
-To check whether you work under Windows 10 **Pro** or **Home** version press: Windows key + i 
+To check whether you work under Windows 10 **Enterprise** or **Home** version press: Windows key + i 
 
 A new window opens
 
