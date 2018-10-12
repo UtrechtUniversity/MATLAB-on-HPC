@@ -215,13 +215,15 @@ docker ps -a
 ```
 More information about Docker and Docker commands can be found [here](./Docker_intro.md) or in the official [Docker documentation](https://docs.docker.com/).
 
+Continue with [part 2](./Part-2-running-matlab.md)
+
 ## Links
 
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
-[Parallelization of MATLAB scripts](./matlab.md)  
+[Part 3: Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
 
 
