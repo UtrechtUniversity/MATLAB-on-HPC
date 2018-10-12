@@ -54,7 +54,7 @@ Copy the script [test_1](./test_1.m) and paste it in the editor.
 
 Save the script as ```test_1.m```
 
-Type ```exit``` to close MATLAB.
+Type ```exit``` in the command window to close MATLAB.
 
 For instructions on how to adapt your own scripts to see [Part 3](./Part-3-Parallel-Matlab.md).
 
