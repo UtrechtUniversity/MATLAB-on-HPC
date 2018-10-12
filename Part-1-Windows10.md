@@ -45,9 +45,15 @@ Now in the middle pane, under Virtual Machines: there should be 1 virtual machin
 
 We will change some of the settings of this virtual machine, but before we do this we have to shut down the machine.
 
-Right click on the virtual machine and select: Shut Down
+Go to the "Docker for Windows" Icon in your Windows taskbar.
+ 
+Right-click on the Icon.
+ 
+A menu appears, click on "Quit Docker"
+ 
+In Hyper-V manager you will see that the "MobyLinuxVM" virtual machine wil shutdown.
 
-Right click on the virtual machine and select: Settings
+In Hyper-V manager Right click on the virtual machine and select: Settings
 
 A new window appears. 
 
@@ -57,6 +63,11 @@ Under Processors: you can change the number of virtual processors.
 
 For example: you can choose for a machine with 3 virtual processors and 3000 MB RAM.
 However, which values to choose is limited by your PC. It is recommended not to use all cores of your PC and for RAM memory it is recommended not to use a very large part of the RAM of your system (maximum 60-80%) as it will make normal operations slower (e.g. internet browsing). If your PC becomes much slower, consider changing these values again.
+
+Now start Docker again:
+Double click on the "Docker for Windows" icon on your desktop. Docker will start.
+
+Wait about a minute until on the right a small screen will appear saying "Docker is now up and Running"
 
 ## Step 3: Start working with Docker
 
@@ -86,7 +97,7 @@ Pull the image that you need by typing e.g.:
 ```
 > docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
 ```
-(<MATLAB version> means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user)
+(<MATLAB version> means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
 
@@ -212,10 +223,13 @@ e.g.
 > docker stop matlabuu
 
 ```
-To stop the virtual machine, go to the start menu and start Hyper-V manager.
-Right click the virtual machine in the left pane and click: Shut Down.
+Now stop docker software and the virtual machine:
 
-
+Go to the "Docker for Windows" Icon in your Windows taskbar.
+ 
+Right-click on the Icon.
+ 
+A menu appears, click on "Quit Docker"
 
 **Starting a session:**
 
@@ -241,13 +255,16 @@ docker ps -a
 ```
 More information about Docker and Docker commands can be found [here](./Docker_intro.md) or in the official [Docker documentation](https://docs.docker.com/).
 
+
+Continue with [part 2](./Part-2-running-matlab.md)
+
 ## Links
 
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
 [Intro SSH & SCP](./ssh.md)  
-[Parallelization of MATLAB scripts](./matlab.md)  
+[Part 3: Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
 
 
