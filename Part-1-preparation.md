@@ -25,7 +25,7 @@ To check whether you work under Windows 10 **Enterprise** or **Home** version pr
 A new window opens
 
 Go to: "System"
-
+adfadsf
 And click: "About"
 
 

@@ -18,21 +18,24 @@ Click on "Get Docker" and the download will start.
 
 Open the downloaded .dmg file and move Docker icon  to Applications icon
 
-Go to Applications in the Finder and open the application Docker
+Go to Applications in the Finder and open the Docker application
 
-Docker wants to priviliged access to install components; you wil be asked for your system password
+Docker wants priviliged access to install components; you wil be asked for your system password
 
-Wait a few second until on the small screen will appear saying "Docker is now up and Running"
-Close this screen by clicking on the "X". Log in with your Docker ID is optional.
+Wait a few seconds until a small screen will appear saying "Docker is now up and Running"
+
+Close this screen by clicking on the "X". 
+
+If you have a Docker account you can login but this is not required.
 
 ### Step 2: Change Docker settings
 
-Go to the *Docker Icon* in the taskbar. Select Preferences -> Advanced. Limit the CPUs and memoryresources available to docker. Spare some CPUs (e.g. 2) and memory (4 GB) for other computer tasks you perform while running applications in docker.
+Go to the *Docker Icon* in the taskbar. Select Preferences -> Advanced. Here you can specify the number of processors (CPUs) and working memory (RAM) resources that are available for Docker to use. To test parallel matlab programs in the Docker environment we advise to assign at least 2 cores and 2 GB RAM. To create a more powerful 'virtual machine' you can increase this values, but it is advisable to reserve some CPUs (e.g. 2) and memory (e.g. 4 GB) for other computer tasks that you perform while running docker.
 
-If your the application in Docker becomes too slow, consider changing these values temporarely.
+If either your PC or running Matlab inside Docker becomes too slow, consider changing these values temporarely.
 
 Apply changes and start Docker again.
-After a while you get the messag "Docker is Running". Close the Preferences pop-up window
+After a while you get the message "Docker is Running". Close the Preferences pop-up window
 
 ### Step 3: Start working with Docker
 
