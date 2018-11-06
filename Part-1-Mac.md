@@ -30,9 +30,9 @@ If you have a Docker account you can login but this is not required.
 
 ### Step 2: Change Docker settings
 
-Go to the *Docker Icon* in the taskbar. Select Preferences -> Advanced. Here you can specify the number of processors (CPUs) and working memory (RAM) resources that are available for Docker to use. To test parallel matlab programs in the Docker environment we advise to assign at least 2 cores and 2 GB RAM. To create a more powerful 'virtual machine' you can increase this values, but it is advisable to reserve some CPUs (e.g. 2) and memory (e.g. 4 GB) for other computer tasks that you perform while running docker.
+Go to the *Docker Icon* in the taskbar. Select Preferences -> Advanced. Here you can specify the number of processors (CPUs) and working memory (RAM) resources that are available for Docker to use. To test parallel matlab programs in the Docker environment we advise to assign at least 2 cores and 2 GB RAM. To create a more powerful 'virtual machine' you can increase these values, but it is advisable to reserve some CPUs (e.g. 2) and memory (e.g. 4 GB) for other computer tasks that you perform while running docker.
 
-If either your PC or running Matlab inside Docker becomes too slow, consider changing these values temporarely.
+If either your PC or running Matlab inside Docker becomes too slow, consider changing these values.
 
 Apply changes and start Docker again.
 After a while you get the message "Docker is Running". Close the Preferences pop-up window
@@ -41,7 +41,7 @@ After a while you get the message "Docker is Running". Close the Preferences pop
 
 Start a terminal session by selecting the app Terminal in the Applications folder or in the Dock.
 
-For introduction in to the basic functions of Terminal click [here](https://macpaw.com/how-to/use-terminal-on-mac).
+For an introduction of the basic functions of Terminal click [here](https://macpaw.com/how-to/use-terminal-on-mac).
 
 Verify that docker is correctly installed and running by typing the following command:
 
@@ -56,16 +56,21 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 > docker search uumatlabinstall
 ```
 
-If you see a list of three dockers you system is OK.
+If you see a list of three repositories your system is OK.
 
 ### Step 4: Pull Docker Image
 
-Before pulling a Docker Image, make sure which version of the MATLAB compiler runtime (MCR) is available on the cluster that you will be using. Check this using the `module avail mcr` command.
+**IMPORTANT** Before pulling a Docker Image, make sure which version of the MATLAB compiler runtime (MCR) is available on the cluster that you will be using. Check this using the `module avail mcr` command.
 
->*If this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)).*
+>*If this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md).*
 >*The Docker Image should feature the same MATLAB version as one of the MCR versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.*
 
-Pull the image that you need. If your MATLAB version is _r2018a_, then type at the commandline:
+Pull the image that you need by typing e.g.:
+
+```
+> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>    (r2016a,r2017b,r2018a)
+```
+If your MATLAB version is _r2018a_, then type at the commandline:
 
 ```
 > docker pull uumatlabinstall/matlab-hpc-compile:r2018a
