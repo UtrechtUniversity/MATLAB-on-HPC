@@ -101,13 +101,13 @@ Verify if the container named matlabuu is running:
 
 ### Step 6: Start SSH session to Docker container (user: root)
 
-If your port is 22, type in **Terminal**:
+In **Terminal** type:
 
 ```
 ssh root@localhost
 ```
 
-If you use another port number, you have to specify it. E.g.
+If you used port 23 (or any other number) instead of 22 in the previous step (so the first port is not 22: ), you have to specify the port number. E.g.
 
 ```
 ssh -p 23 root@localhost
@@ -115,7 +115,7 @@ ssh -p 23 root@localhost
 
 > For backgrounds to SSH sessions see [SSH & SCP](./ssh.md)  
 
-The first time you login you will be asked to accept the fingerprint of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
+The first time you login you will be asked to accept the 'fingerprint' of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
 
 Then you are asked for a password, fill in `wijzigen`. You will see the commandline prompt of the docker container which runs a Linux operating system.
 
@@ -126,14 +126,40 @@ Think of a good password and type at the command prompt `passwd`. Type and retyp
 
 ### Step 7: Activate display forwarding in Docker container
 
-To use windows-oriented programs, your docker must communicate with your mac by means of X11 protocol. Apple doesn't ship X11 with macOS anymore. You have to install [XQuartz](https://www.xquartz.org) on your mac. Make sure that the file `/etc/ssh/sshd_config` contains the line `X11Forwarding yes`. Restart your ssh daemon on your mac, if you had to edit this config file.
+To use GUI (graphical user interface) applications, your docker containter has to communicate with your mac by means of the X11 protocol. On macOS you have to install [XQuartz](https://www.xquartz.org) to allow display forwarding. 
+
+Open a separate `Terminal` session. 
+
+Make sure that the file `/etc/ssh/sshd_config` contains the line `X11Forwarding yes`.
+
+In the Terminal type:
+```
+cd /etc/ssh
+```
+Then open the `sshd_config` file.
+
+Make sure that the file contains the line: `X11Forwarding yes`.
+
+If not there may be a line like this:
+
+```#X11Forwarding no```
+
+If that is the case, remove the `#` and change `no` to  `yes`.
+
+Save and close the file.
+
+If you didn't need to change the file you can close the separate Terminal session and go back to the SSH session.
+
+If you had to make changes to the `sshd_config` file, you have to restart your ssh daemon on your mac.
+Do this by running the following commands in the Terminal.
 
 ```
 sudo launchctl stop com.openssh.sshd
 sudo launchctl start com.openssh.sshd
 ```
+Now you can close the separate Terminal session and go back to the SSH session.
 
-On the docker set the DISPLAY variable with your internet IP address followed by `:0.0`. E.g.
+In the SSH session to the docker container in the Terminal, set the DISPLAY variable with your internet IP address followed by `:0.0`. E.g.
 
 ```
 # export DISPLAY=145.107.146.50:0.0 
@@ -151,7 +177,7 @@ A clock should appear in a new window on the display of your mac.
 
 ## Step 8: Install MATLAB  
 
-When logged in on the docker, go to the directory where the matlab installer is located
+In the SSH session to the docker container in the Terminal, go to the directory where the matlab installer is located
 
 ```
 # cd /
