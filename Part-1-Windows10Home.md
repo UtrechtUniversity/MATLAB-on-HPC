@@ -57,13 +57,19 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 > docker search uumatlabinstall
 ```
 
-**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
+**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command. >if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md). >The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
 Pull the image that you need by typing e.g.:
 
 ```
 > docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
 ```
+If your MATLAB version is _r2018a_, then type at the commandline:
+
+```
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a
+```
+In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify r2018a in a command.
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
 
