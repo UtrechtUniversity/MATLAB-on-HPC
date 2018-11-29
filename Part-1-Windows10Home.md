@@ -114,20 +114,16 @@ to something like:
 This means that from now on you are giving commands to the container (until you exit the container by running the `exit` command). The container is operated with Linux commands instead of Windows commands. For an introduction to Linux commands see [Introduction to Linux](./Linux_intro.md).
 
 >Alternatively it is possible to access your docker container using SSH. For this step you need a Desktop SSH client. For backgrounds of SSH sessions see [SSH & SCP](./ssh.md)  
-
 >Recommended software for SSH is MobaXterm, available at https://mobaxterm.mobatek.net/
 
->Open MobaXterm
+>Open MobaXterm  
 >Start an SSH session: Click Session > SSH
 
 >Fill in the following fields:   
->Remote host: `< IP – address >`
-
->Username: `user`       	
-
->Port: `23`     
->The IP - address that needs to be filled in can be found via windows command line using ```>  docker-machine ls```)
-
+>Remote host: `< IP – address >`  
+>Username: `user`  
+>Port: `23`  
+>The IP - address that needs to be filled in can be found via windows command line using ```>  docker-machine ls```)  
 >Under Bookmark settings, choose a session name (e.g. Docker).
 
 >Click OK to start the session  
