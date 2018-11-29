@@ -121,8 +121,10 @@ This means that from now on you are giving commands to the container (until you 
 >Start an SSH session: Click Session > SSH
 
 >Fill in the following fields:   
->Remote host: `< IP – address >`        	
+>Remote host: `< IP – address >`
+
 >Username: `user`       	
+
 >Port: `23`     
 >The IP - address that needs to be filled in can be found via windows command line using ```>  docker-machine ls```)
 
