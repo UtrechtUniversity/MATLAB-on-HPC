@@ -14,14 +14,6 @@ Start a Windows Command Prompt session by typing `cmd` in the windows start menu
 
 For some background and basic functions of Windows Command Prompt see [Windows Command Line](https://www.computerhope.com/issues/chusedos.htm)  
 
-Navigate to the directory where Docker is installed.
-
-e.g.
-
-```
-...> cd /
-C:\> cd Program Files/Docker Toolbox
-```
 ## Step 3: Create a virtual machine
 
 Now you will create a virtual machine with the name ‘default’. The example below has 3 cores  (–virtualbox-cpu-count 3), a storage disk with 100 GB storage (--virtualbox-disk-size "100000") and 3 GB RAM (--virtualbox-memory 3000). These values can be adapted if required. As you reserve part of your working station for this virtual machine, by definition these values cannot be higher than what is available on your PC. It is advised not to choose these values too high; too much RAM may slow down your working station. 
@@ -30,7 +22,7 @@ Type the following command:
 ```
 > docker-machine create -d virtualbox –virtualbox-cpu-count 3 --virtualbox-disk-size "100000" --virtualbox-memory 3000 default
 ```
-Now we have a new virtual machine with the name default.
+Now we have a new virtual machine with the name 'default'.
 
 Verify that docker is correctly installed and running by typing the following command:
 

@@ -99,6 +99,8 @@ Verify if the container named matlabuu is running:
 > docker ps -a
 ```
 
+You will see a column names and 1 row. The field below STATUS should display something like: Up 10 seconds
+
 ### Step 6: Start SSH session to Docker container (user: root)
 
 In **Terminal** type:
