@@ -39,7 +39,7 @@ Now type the following commands to set the docker environment to the newly creat
 ```
 
 ! If you have used docker before, there may already exist a virtual machine named 'default'. 
-You can remove the other machine, or choose a different name. See [Introduction to Docker](./Docker_intro.md) for more information about this.
+You can remove the other machine before running the docker-machine command, or choose a different name. See [Introduction to Docker](./Docker_intro.md) for more information about this.
 
 ## Step 4: Pull Docker Image
 
@@ -78,6 +78,8 @@ Verify if the container named matlabuu is running:
 ```
 > docker ps -a
 ```
+
+You will see a column names and 1 row. The field below STATUS should display something like: Up 10 seconds
 
 ## Step 6: Start SSH session to Docker container (user: root)
 
