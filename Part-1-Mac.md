@@ -105,26 +105,27 @@ You will see a column names and 1 row. The field below STATUS should display som
 
 In **Terminal** type:
 
-```
-ssh root@localhost
-```
+`docker exec -it -u user matlabuu bash`
 
-If you used port 23 (or any other number) instead of 22 in the previous step (so the first port is not 22: ), you have to specify the port number. E.g.
-
-```
-ssh -p 23 root@localhost
-```
-
+>Alternatively it is possible to access the container via SSH.
+>
+>In **Terminal** type:
+>
+>```
+>ssh user@localhost
+>```
+>
+>If you used port 23 (or any other number) instead of 22 in the previous step (so the first port is not 22: ), you have to specify the >port number. E.g.
+>
+>```
+>ssh -p 23 user@localhost
+>```
+>
 > For backgrounds to SSH sessions see [SSH & SCP](./ssh.md)  
-
-The first time you login you will be asked to accept the 'fingerprint' of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
-
-Then you are asked for a password, fill in `wijzigen`. You will see the commandline prompt of the docker container which runs a Linux operating system.
-
-This password is also a reminder to change the password (`wijzigen` is the Dutch word for `change`)
-
-Think of a good password and type at the command prompt `passwd`. Type and retype your new password.
-
+>
+>The first time you login you will be asked to accept the 'fingerprint' of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
+>
+>Then you are asked for a password, fill in `user`. You will see the commandline prompt of the docker container which runs a Linux operating system.
 
 ### Step 7: Activate display forwarding in Docker container
 
