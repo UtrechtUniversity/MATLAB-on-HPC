@@ -165,7 +165,7 @@ Now you can close the separate Terminal session and go back to the SSH session.
 In the SSH session to the docker container in the Terminal, set the DISPLAY variable with your internet IP address followed by `:0.0`. E.g.
 
 ```
-# export DISPLAY=145.107.146.50:0.0 
+$ export DISPLAY=145.107.146.50:0.0 
 ```
 
 This is the IPv4-address that can be found in *Preferences --> Network --> Advanced --> TCP/IP*. Or look it upin with [your browser](https://whatismyipaddress.com).
@@ -173,34 +173,37 @@ This is the IPv4-address that can be found in *Preferences --> Network --> Advan
 Check if Xserver-Client is working by starting the xclock application:
 
 ```
-# xclock
+$ xclock
 ```
  
 A clock should appear in a new window on the display of your mac.
 
 ## Step 8: Install MATLAB  
 
-In the SSH session to the docker container in the Terminal, go to the directory where the matlab installer is located
+In the session to the docker container in the Terminal, go to the directory where the matlab installer is located
 
 ```
-# cd /
-# cd matlab
+$ cd ~
+$ cd matlab
 ```
 
-Unzip the MATLAB installer:
+
+**IMPORTANT!** 
+Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+
+Run MATLAB installation script:
+```
+$ sudo ./install_matlab.sh
+```
+When asked for a password, type:
 
 ```
-# unzip matlab_R2018a_glnxa64.zip
+$ user
 ```
-
-Start MATLAB installation
-
-```
-# ./install
-```
+and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
 
 An installer screen will pop-up in new window.
-! If not, there is a potential problem when firewall is active (see step 7)
+! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
 In the installer screen, do the following: 
 
@@ -208,12 +211,11 @@ Login to your Mathworks account
 
 Select campus license and proceed
 
-Choose destination folder: /usr/local/MATLAB/R2018a and proceed
+**Choose destination folder: /opt/matlab** 
 
-Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.
+**Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
 When the installer has finished you are ready to start MATLAB.
-
 
 
 If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
@@ -225,7 +227,7 @@ Here are some useful commands for ending and starting docker sessions, e.g. when
 
 **Ending a session:**
 
-End your ssh session to the Docker container in MobaXterm by typing ```# exit``` and press return.
+Exit your Docker container by typing ```$ exit``` and press return.
 
 To end the running container type at the macOS prompt:
 
