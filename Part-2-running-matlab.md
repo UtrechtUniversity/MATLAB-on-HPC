@@ -21,14 +21,17 @@ Next, start the container by typing:
 ```
 > docker start matlabuu
 ```
-Now, start MobaXterm and doubleclick the ssh session to your container (the one you created in step 6).
 
-Activate display forwarding with the ```export DISPLAY=``` command (Part 1: step 7), and test whether this works by typing: ```xclock```. If a new window with a clock appears you are ready to run MATLAB.
+In Windows command prompt, run the following command
+
+`docker exec -it -u user matlabuu bash`
+
+> Alternatively, start an ssh session to your container using MobaXterm (the one you may have created in step 7 of part 1).
+
+Activate display forwarding with the ```export DISPLAY=``` command (Part 1: step 8), and test whether this works by typing: ```xclock```. If a new window with a clock appears you are ready to run MATLAB.
 
 ## Step 2: start MATLAB
 
-Use the SSH session in MobaXterm for this step.
- 
 Navigate to matlab directory
 
 ```

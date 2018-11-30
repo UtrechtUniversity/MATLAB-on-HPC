@@ -105,26 +105,27 @@ You will see a column names and 1 row. The field below STATUS should display som
 
 In **Terminal** type:
 
-```
-ssh root@localhost
-```
+`docker exec -it -u user matlabuu bash`
 
-If you used port 23 (or any other number) instead of 22 in the previous step (so the first port is not 22: ), you have to specify the port number. E.g.
-
-```
-ssh -p 23 root@localhost
-```
-
+>Alternatively it is possible to access the container via SSH.
+>
+>In **Terminal** type:
+>
+>```
+>ssh user@localhost
+>```
+>
+>If you used port 23 (or any other number) instead of 22 in the previous step (so the first port is not 22: ), you have to specify the >port number. E.g.
+>
+>```
+>ssh -p 23 user@localhost
+>```
+>
 > For backgrounds to SSH sessions see [SSH & SCP](./ssh.md)  
-
-The first time you login you will be asked to accept the 'fingerprint' of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
-
-Then you are asked for a password, fill in `wijzigen`. You will see the commandline prompt of the docker container which runs a Linux operating system.
-
-This password is also a reminder to change the password (`wijzigen` is the Dutch word for `change`)
-
-Think of a good password and type at the command prompt `passwd`. Type and retype your new password.
-
+>
+>The first time you login you will be asked to accept the 'fingerprint' of the docker container. Type `yes` and the fingerprint will be checked in subsequent login sessions.
+>
+>Then you are asked for a password, fill in `user`. You will see the commandline prompt of the docker container which runs a Linux operating system.
 
 ### Step 7: Activate display forwarding in Docker container
 
@@ -164,7 +165,7 @@ Now you can close the separate Terminal session and go back to the SSH session.
 In the SSH session to the docker container in the Terminal, set the DISPLAY variable with your internet IP address followed by `:0.0`. E.g.
 
 ```
-# export DISPLAY=145.107.146.50:0.0 
+$ export DISPLAY=145.107.146.50:0.0 
 ```
 
 This is the IPv4-address that can be found in *Preferences --> Network --> Advanced --> TCP/IP*. Or look it upin with [your browser](https://whatismyipaddress.com).
@@ -172,34 +173,37 @@ This is the IPv4-address that can be found in *Preferences --> Network --> Advan
 Check if Xserver-Client is working by starting the xclock application:
 
 ```
-# xclock
+$ xclock
 ```
  
 A clock should appear in a new window on the display of your mac.
 
 ## Step 8: Install MATLAB  
 
-In the SSH session to the docker container in the Terminal, go to the directory where the matlab installer is located
+In the session to the docker container in the Terminal, go to the directory where the matlab installer is located
 
 ```
-# cd /
-# cd matlab
+$ cd ~
+$ cd matlab
 ```
 
-Unzip the MATLAB installer:
+
+**IMPORTANT!** 
+Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+
+Run MATLAB installation script:
+```
+$ sudo ./install_matlab.sh
+```
+When asked for a password, type:
 
 ```
-# unzip matlab_R2018a_glnxa64.zip
+$ user
 ```
-
-Start MATLAB installation
-
-```
-# ./install
-```
+and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
 
 An installer screen will pop-up in new window.
-! If not, there is a potential problem when firewall is active (see step 7)
+! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
 In the installer screen, do the following: 
 
@@ -207,12 +211,11 @@ Login to your Mathworks account
 
 Select campus license and proceed
 
-Choose destination folder: /usr/local/MATLAB/R2018a and proceed
+**Choose destination folder: /opt/matlab** 
 
-Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.
+**Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
 When the installer has finished you are ready to start MATLAB.
-
 
 
 If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
@@ -224,7 +227,7 @@ Here are some useful commands for ending and starting docker sessions, e.g. when
 
 **Ending a session:**
 
-End your ssh session to the Docker container in MobaXterm by typing ```# exit``` and press return.
+Exit your Docker container by typing ```$ exit``` and press return.
 
 To end the running container type at the macOS prompt:
 

@@ -124,33 +124,60 @@ Verify if the container named matlabuu is running:
 
 You will see a column names and 1 row. The field below STATUS should display something like: Up 10 seconds
 
-## Step 6: Start SSH session to Docker container (user: root)
+## Step 6: start X-server
 
-For this step you need a Desktop SSH client. For backgrounds of SSH sessions see [SSH & SCP](./ssh.md)  
+In order to run MATLAB interactively in your container, you need to install an X11 server. We recommend to install MobaXterm, which is available for free at https://mobaxterm.mobatek.net/. This software is also frequently used for ssh sessions to HPC. 
 
-Recommended software for SSH is MobaXterm, available at https://mobaxterm.mobatek.net/
+Download MobaXterm and follow the installation instructions.
 
-Open MobaXterm
-Start an SSH session: Click Session > SSH
+Start MobaXterm.
 
-Fill in the following fields:  
-Remote host: `localhost`  
-Username: `root`  
-Port: `22` (or 23 if so specified in the previous step)  
+Click the settings icon (or click the settings tab, and click 'Configuration') 
 
-Under Bookmark settings, choose a session name (e.g. Docker).
+Click the X11 tab.
 
-Click OK to start the session  
-When you are asked for a password, fill in:  
-Password: `wijzigen`
+Set the 'X11 remote access' field to 'full'.
+
+Click OK.
+
+## Step 7: start Docker container
+
+In Windows command prompt, run the following command
+
+docker exec -it -u user matlabuu bash
+
+You will see that the prompt changed from:
+
+`C:\Users\ITS\>`
+
+to something like: 
+
+`user@fb6123eba838:~$`
+
+This means that from now on you are giving commands to the container (until you exit the container by running the `exit` command). The container is operated with Linux commands instead of Windows commands. For an introduction to Linux commands see [Introduction to Linux](./Linux_intro.md).
+
+>Alternatively it is possible to access your docker container using SSH. For this step you need a Desktop SSH client. For backgrounds of SSH sessions see [SSH & SCP](./ssh.md)  
+>Recommended software for SSH is MobaXterm, available at https://mobaxterm.mobatek.net/
+
+>Open MobaXterm  
+>Start an SSH session: Click Session > SSH
+
+>Fill in the following fields:   
+>Remote host: `< IP – address >`  
+>Username: `user`  
+>Port: `22` (or 23 if so specified in the previous step)  
+>The IP - address that needs to be filled in can be found via windows command line using ```>  docker-machine ls```)  
+>Under Bookmark settings, choose a session name (e.g. Docker).
+
+>Click OK to start the session  
+>When you are asked for a password, fill in:  
+>Password: `user`
 
 
-## Step 7: Activate display forwarding in Docker container
+## Step 8: Activate display forwarding in Docker container
 
-Use the SSH session in MobaXterm for this step.
+In your container, give the following command to set the X11 Server display port: 
  
-Set X11 Server display port: 
-
 ```
 # export DISPLAY=<xxx.xxx.xxx.xxx>:0.0 
 ```
@@ -166,30 +193,34 @@ Check if Xserver-Client is working by starting the xclock application:
 ```
  
 A clock should appear in a new window.
-! if the clock is not appearing, X11 forwarding may be blocked by a firewall. Check settings of firewall and set internet connections to private or allow exceptions.
+! if the clock is not appearing, X11 forwarding may be blocked by a firewall. Check settings of firewall and set internet connections to private or allow exceptions. If this is not working check the [FAQ](./FAQ.md)
 
-## Step 8: Install MATLAB  
+## Step 9: Install MATLAB  
 
-Use the SSH session in MobaXterm for this step.
+When the xclock successfully appears on your screen, you are ready to start the MATLAB installer.
 
-Go to the directory where the matlab installer is located :
+Go to the directory where the matlab installer is located:
 ```
-# cd /
-# cd matlab
-```
-
-Unzip the MATLAB installer:
-
-```
-# unzip matlab_R2018a_glnxa64.zip
+$ cd ~
+$ cd matlab
 ```
 
-Start MATLAB installation:
+**IMPORTANT!** 
+Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+
+Run MATLAB installation script:
 ```
-# ./install
+$ sudo ./install_matlab.sh
 ```
+When asked for a password, type:
+
+```
+$ user
+```
+and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
+
 An installer screen will pop-up in new window.
-! If not, there is a potential problem when firewall is active (see step 7)
+! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
 In the installer screen, do the following: 
 
@@ -197,9 +228,9 @@ Login to your Mathworks account
 
 Select campus license and proceed
 
-Choose destination folder: /usr/local/MATLAB/R2018a and proceed
+**Choose destination folder: /opt/matlab** 
 
-Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.
+**Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
 When the installer has finished you are ready to start MATLAB.
 
@@ -214,7 +245,7 @@ Here are some useful commands for ending and starting docker sessions, e.g. when
 
 **Ending a session:**
 
-End your ssh session to the Docker container in MobaXterm by typing ```# exit``` and press return.
+Exit your Docker container by typing ```$ exit``` and press return.
 
 To end the running container type in Windows Command Prompt:
 ```
