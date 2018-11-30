@@ -1,4 +1,6 @@
 
+master
+=======
 ## Export Display issues
 
 # Check if X server is running.
@@ -29,3 +31,4 @@ Click OK.
 Check your anti virus software
 Check windows firewall
 
+nonroot-user
