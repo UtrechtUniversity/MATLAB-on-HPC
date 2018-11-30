@@ -253,5 +253,5 @@ Continue with [part 2](./Part-2-running-matlab.md)
 [Intro SSH & SCP](./ssh.md)  
 [Part 3: Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
-
+[FAQ](./FAQ.md)  
 

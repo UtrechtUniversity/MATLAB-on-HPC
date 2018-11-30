@@ -32,21 +32,23 @@ Activate display forwarding with the ```export DISPLAY=``` command (Part 1: step
 
 ## Step 2: start MATLAB
 
-Navigate to matlab directory
+Make sure you are in your user directory:
+```
+$ cd ~
+```
+If starting MATLAB for the first time, create a directory for your scripts in the home directory.
 
 ```
-# cd /
-# cd usr/local/MATLAB/R2018a/bin
+$ mkdir scripts
 ```
-Create a test folder
 
-```
-# mkdir test
-```
 Start MATLAB
 ```
-# ./matlab
+$ matlab
 ```
+MATLAB will start, this may take a short while.
+
+
 ## Step 3: Create a MATLAB script
 
 In MATLAB, first navigate to the ‘test’ folder in your workspace.
@@ -68,17 +70,19 @@ Use the SSH session to Docker container in MobaXterm for this step.
 Now compile (translate) the script to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
-# cd test
-# ../mcc -mv -o myExec test_1.m
-# ls -al
+$ cd test
+$ mcc -mv -o myExec test_1.m
+$ ls -al
 ```
 myExec is the compiled program and should now be listed in the folder.
 
-Copy both files to cluster using the scp command or manually.  
+Copy both files to your cluster using the scp command or manually.  
 
 ```
-# scp myExec <username>@lisa.surfsara.nl:/home/<username>/
+$ scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 ```
+Depending on the login requirements of the cluster you may be asked to fill in the password of your cluster account.
+
 ! This command does not work directly when copying to the UBC cluster as an SSH connection should be established using key pairs.
 For more background on how to transfer data to UBC by establishing SSH/SCP connections see [Intro SSH & SCP](./ssh.md)
 
