@@ -31,7 +31,7 @@ The output m will be printed as text in the output file of the HPC job. Using th
 To be compatible with HPC, scripts have to be translated to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command. Compiling the above script can be done as follows.
 
 ```
-../mcc -mv -o myexample examplescript.m
+mcc -mv -o myexample examplescript.m
 ```
 
 A couple of obtions are activated with the command:
@@ -68,11 +68,11 @@ For more information about job submission files see [introduction to HPC](./HPC_
 
 If you compile a script that calls different (non built-in) functions, these need to be specified as well directly after the main script.
 ```
-../mcc -mv -o myexample examplescript.m examplescript2.m
+mcc -mv -o myexample examplescript.m examplescript2.m
 ```
 If there are a large number of scripts and/or input data files that are called from the main script it may be easier to put them in a folder and add this folder using the ```-a``` option:
 ```
-../mcc -mv -o examplefolder examplescript.m -a ./examplefolder
+mcc -mv -o examplefolder examplescript.m -a ./examplefolder
 ```
 ```-a ./examplefolder``` will include all files in the ```examplefolder``` and files in subfolders of ```examplefolder``` in the compilation process.
 
@@ -125,7 +125,7 @@ The testscripts above can be used as a template to test different functions and 
 Note that MATLAB automatically uses all available cores available, so no alterations have to be made to your code to implement this and running your code on a HPC node with 16 or more cores may automatically result in speedups (depending on whether your problem is suitable). For these specific test examples the command ```maxNumCompThreads(m)``` is used each iteration to limit the number of threads.
 To disable multithreading add ```-R singleCompThread``` to the mcc command:
 ```
-../mcc -mv -R singleCompThread -o myexample examplescript.m
+mcc -mv -R singleCompThread -o myexample examplescript.m
 ```
 ## Parallel Computing Toolbox
 
@@ -171,4 +171,17 @@ Suitable for: Tasks involving a number of independent calculations
 
 A job can be submitted to one node and make use of all the cores on that node for parallelization. However, if the task allows it, it is of course possible to subdivide the work into multiple jobs and submit multiple jobs at the same time to make use of more than 1 compute node. 
 
+## Start working with your own data
+Check the data transfer [manual](Data_transfer.md) to see how you can get access to your own data from your docker container.
 
+
+## Links
+[Introduction to Linux](./Linux_intro.md)  
+[Introduction to Docker](./Docker_intro.md)  
+[Introduction to HPC](./HPC_intro.md)  
+[Introduction to SSH & SCP](./ssh.md)  
+[Part 1: Windows 10 Enterprise](./Part-1-Windows10.md)
+[Part 1: Windows 10 Home](./Part-1-Windows10Home.md)
+[Part 1: Mac](./Part-1-Mac.md)
+[Part 2](./Part-2-running-matlab.md)
+[MATLAB Test script 1](./Test_1.m)  
