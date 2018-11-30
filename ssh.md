@@ -65,8 +65,10 @@ Contact UBC system administrators when you need help with this.
 
 # SCP
 
-There are two ways to transfer files between the HPC cluster and your PC: via the scp command using the command line or manually using an interactive SFTP browser.
-Manually works only between the cluster and your PC, and between your docker container and your PC. To transfer between docker container and HPC cluster use the scp command (or alternatively copy manually to your PC first)
+There are two ways to transfer files between your PC, your Docker container and the HPC cluster: via command line (fast, no nonsense approach) or using software with a graphical user interface (intuitive for beginning users).
+
+**Command line**
+To transfer between docker container and HPC cluster use the scp command (or alternatively copy manually to your PC first)
 
 **Manual copy** When you are in an active SSH session in MobaXterm, there may already be a side-bar visible in the left of your window. If this subwindow not visible, click View > Show/Hide Side-bar.  
 
