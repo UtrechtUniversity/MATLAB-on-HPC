@@ -1,7 +1,13 @@
 
+<<<<<<< HEAD
 ## Export Display Issues
 
 If there is no new window opening when running the `xclock` command or when running the MATLAB installer or MATLAB, there may be something wrong with configuration of the X server or the `export DISPLAY` variable. Check the following things for a potential solution. If these are all not working, contact ...
+=======
+master
+=======
+## Export Display issues
+>>>>>>> d51bfd8866d59570b1c764d3b87c8f06299befe2
 
 # Check if X server is running.
 
@@ -60,3 +66,4 @@ If not, it is probably easiest to exit this docker container, stop and remove th
 
 
 
+nonroot-user
