@@ -59,7 +59,7 @@ Pull the image that you need by typing e.g.:
 If your MATLAB version is _r2018a_, then type at the commandline:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:r2018a
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user
 ```
 In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify r2018a in a command.
 
@@ -70,7 +70,7 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user
 ```
 
 Verify if the container named matlabuu is running:
