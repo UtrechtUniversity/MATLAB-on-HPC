@@ -144,7 +144,7 @@ Click OK.
 
 In Windows command prompt, run the following command
 
-docker exec -it -u user matlabuu bash
+`docker exec -it -u user matlabuu bash`
 
 You will see that the prompt changed from:
 
