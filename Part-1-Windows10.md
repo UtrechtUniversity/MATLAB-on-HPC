@@ -95,7 +95,7 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 Pull the image that you need by typing e.g.:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a_user)
 ```
 (<MATLAB version> means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
 
@@ -106,13 +106,13 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
 ```
 
 If an errormessage is displayed saying that "…port is already allocated" choose another port with the following docker command, e.g.:
 
 ``` 
-docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
 ```
 
 
