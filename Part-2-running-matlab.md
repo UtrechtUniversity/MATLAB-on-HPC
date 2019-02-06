@@ -108,7 +108,12 @@ module unload mcr/v94
 ```
 LISA
 ```
-#PBS -lnodes=1 -lwalltime=00:10:00
+#! /bin/bash
+
+#SBATCH -N 1              # 1 node
+#SBATCH --mem=32G         # with 32 GB memory
+#SBATCH -t 00:10:00       # for 5 minutes
+
 module load mcr/2017b         # mcr version should be same as matlab version
 cd ./test
 ./myExec 200 1
@@ -120,6 +125,9 @@ Type ```:wq``` to save and quit.
 
 Now submit the job.
 
+**For UBC:**
+
+Submit the job using the following command:
 ```
 # qsub test1
 ```
@@ -131,6 +139,18 @@ You can check the progress of your job using the ```qstat``` command:
 ```
 This command lists the jobs that you have submitted. You can see which of your jobs are waiting in the queue and which of your jobs are running and how long they have been running. When a job is done, it will not be in the list anymore.
 
+**For Lisa:**
+
+Submit the job using the following command:
+```
+# sbatch test1
+```
+You can check the progress of your job using the ```squeue``` command:
+
+```
+# squeue -u <username>
+```
+This command lists the jobs that you have submitted. You can see which of your jobs are waiting in the queue and which of your jobs are running and how long they have been running. When a job is done, it will not be in the list anymore.
 
 ## Step 6: Check result
 
