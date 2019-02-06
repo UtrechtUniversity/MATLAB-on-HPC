@@ -1,7 +1,7 @@
 # Part 1: Create a Docker container and install Matlab
 
 
-## Step 1: Install Docker software on PC (Windows 10 Pro)
+## Step 1: Install Docker software on PC (Windows 10 Enterprise)
 
 Download Docker Community Edition for Windows via:
 
@@ -231,8 +231,9 @@ Select campus license and proceed
 
 **Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
-When the installer has finished you are ready to start MATLAB.
+When the installer has finished, you will be asked if you want to activate matlab now. Activate matlab.
 
+When you have finished the activation procedure, you are ready to start MATLAB.
 
 
 If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
