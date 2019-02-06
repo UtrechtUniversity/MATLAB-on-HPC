@@ -71,7 +71,7 @@ Wait about a minute until on the right a small screen will appear saying "Docker
 
 ## Step 3: Start working with Docker
 
-Start a Windows Command Prompt session by typing `cmd` in the windows start menu search field.
+Start a Windows Command Prompt session: first click the start button and then type `cmd`.
 
 For some background and basic functions of Windows Command Prompt see [Windows Command Line](https://www.computerhope.com/issues/chusedos.htm)  
 
@@ -84,11 +84,12 @@ Version information should be displayed for Docker Client and for Docker Server.
 
 ## Step 4: Pull Docker Image
 
-Several Docker Images with different versions of MATLAB have been prepared by UU ITS. For an overview, type:
+Several Docker Images with different versions of MATLAB have been prepared by UU ITS. Type:
 
 ```
 > docker search uumatlabinstall
 ```
+to view the the repository.
 
 **IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
