@@ -190,7 +190,7 @@ In your container, give the following command to set the X11 Server display port
 ```
 
 <xxx.xxx.xxx.xxx> = IP address from desktop
-This is the IPv4-address that can be found via internet connection properties or via [www.whatsmyip.org](http://www.whatsmyip.org/).
+This is the IPv4-address that can be found via internet connection properties or via [www.whatsmyip.org](http://www.whatsmyip.org/){:target="_blank"}.
 
 Check if Xserver-Client is working by starting the xclock application:
 
