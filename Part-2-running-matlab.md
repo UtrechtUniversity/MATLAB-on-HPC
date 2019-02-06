@@ -76,7 +76,7 @@ $ ls -al
 ```
 myExec is the compiled program and should now be listed in the folder.
 
-Copy both files to your cluster using the scp command or manually.  
+Copy the executable file 'myExec' to your cluster using the scp command or manually.  
 
 ```
 $ scp myExec <username>@lisa.surfsara.nl:/home/<username>/
@@ -84,6 +84,7 @@ $ scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 Depending on the login requirements of the cluster you may be asked to fill in the password of your cluster account.
 
 ! This command does not work directly when copying to the UBC cluster as an SSH connection should be established using key pairs.
+For more transfer methods check [Data Transfer](./Data_transfer.md)
 For more background on how to transfer data to UBC by establishing SSH/SCP connections see [Intro SSH & SCP](./ssh.md)
 
 ## Step 5: Submit job 
