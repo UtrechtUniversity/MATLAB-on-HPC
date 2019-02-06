@@ -51,7 +51,7 @@ MATLAB will start, this may take a short while.
 
 ## Step 3: Create a MATLAB script
 
-In MATLAB, first navigate to the ‘test’ folder in your workspace.
+In MATLAB, first navigate to the ‘scripts’ folder in your workspace.
 
 Then open an empty script.
 
@@ -70,7 +70,7 @@ Use the SSH session to Docker container in MobaXterm for this step.
 Now compile (translate) the script to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
-$ cd test
+$ cd scripts
 $ mcc -mv -o myExec test_1.m
 $ ls -al
 ```
