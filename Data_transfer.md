@@ -8,7 +8,7 @@ There are two ways to transfer files between your Docker container and the HPC c
 
 It is possible to synchronize data between the Docker container and an online storage platform (such as Yoda or Surfdrive) using Rclone. Rclone perfectly fits in an workflow for High Performance Computing (see [this page](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/workflow.md)).
 
-Instructions for installing and using Rclone are available for: [Surfdrive](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/surfdrive.md) and [Yoda](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/rclone_yoda.md). 
+Instructions for installing and using Rclone are available for [Surfdrive](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/surfdrive.md) and [Yoda](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/rclone_yoda.md). 
 Although these instructions are initially written for using Rclone on HPC platforms, the installation procedure is equal.
 
 **Secure Copy**
