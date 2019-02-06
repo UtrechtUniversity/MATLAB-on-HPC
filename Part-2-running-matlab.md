@@ -32,24 +32,26 @@ Activate display forwarding with the ```export DISPLAY=``` command (Part 1: step
 
 ## Step 2: start MATLAB
 
-Navigate to matlab directory
+Make sure you are in your user directory:
+```
+$ cd ~
+```
+If starting MATLAB for the first time, create a directory for your scripts in the home directory.
 
 ```
-# cd /
-# cd usr/local/MATLAB/R2018a/bin
+$ mkdir scripts
 ```
-Create a test folder
 
-```
-# mkdir test
-```
 Start MATLAB
 ```
-# ./matlab
+$ matlab
 ```
+MATLAB will start, this may take a short while.
+
+
 ## Step 3: Create a MATLAB script
 
-In MATLAB, first navigate to the ‘test’ folder in your workspace.
+In MATLAB, first navigate to the ‘scripts’ folder in your workspace.
 
 Then open an empty script.
 
@@ -68,17 +70,19 @@ Use the SSH session to Docker container in MobaXterm for this step.
 Now compile (translate) the script to machine language using the [mcc](https://nl.mathworks.com/help/compiler/mcc.html) command:
 
 ```
-# cd test
-# ../mcc -mv -o myExec test_1.m
-# ls -al
+$ cd scripts
+$ mcc -mv -o myExec test_1.m
+$ ls -al
 ```
 myExec is the compiled program and should now be listed in the folder.
 
-Copy both files to cluster using the scp command or manually.  
+Copy both files to your cluster using the scp command or manually.  
 
 ```
-# scp myExec <username>@lisa.surfsara.nl:/home/<username>/
+$ scp myExec <username>@lisa.surfsara.nl:/home/<username>/
 ```
+Depending on the login requirements of the cluster you may be asked to fill in the password of your cluster account.
+
 ! This command does not work directly when copying to the UBC cluster as an SSH connection should be established using key pairs.
 For more background on how to transfer data to UBC by establishing SSH/SCP connections see [Intro SSH & SCP](./ssh.md)
 
@@ -136,7 +140,7 @@ When the jobs are done, an error file and an output file are produced in the dir
 <submission-filename>.e<job-id>   	(errorfile)
 <submission-filename>.o<job-id>	    (outputfile)
 ```
-Type:```#ls``` to see if they are there.
+Type:```ls``` to see if they are there.
 
 You can open them using 
 ```
@@ -173,6 +177,9 @@ Further, stop the container and virtual machine as explained in Part 1: [Windows
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
-[Intro SSH & SCP](./ssh.md)  
-[Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md)  
-[MATLAB Test script 1](./test_1.m)  
+[Intro SSH & SCP](./ssh.md) 
+[Part 1: Windows 10 Enterprise](./Part-1-Windows10.md)
+[Part 1: Windows 10 Home](./Part-1-Windows10Home.md)
+[Part 1: Mac](./Part-1-Mac.md)
+[Part 3: Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md)  
+[MATLAB Test script 1](./test_1.m)

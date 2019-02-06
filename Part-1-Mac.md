@@ -68,7 +68,7 @@ If you see a list of three repositories your system is OK.
 Pull the image that you need by typing e.g.:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>    (r2016a,r2017b,r2018a)
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user    (r2016a,r2017b,r2018a)
 ```
 
 ( `<MATLAB version>` means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
@@ -76,7 +76,7 @@ Pull the image that you need by typing e.g.:
 If your MATLAB version is _r2018a_, then type at the commandline:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:r2018a
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user
 ```
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
@@ -86,13 +86,13 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user
 ```
 
 If an errormessage is displayed saying that "…port is already allocated" choose another port with the following docker command, e.g.:
 
 ``` 
-docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user
 ```
 
 Verify if the container named matlabuu is running:
@@ -268,7 +268,8 @@ Continue with [part 2: Running Matlab](./Part-2-running-matlab.md)
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
-[Intro SSH & SCP](./ssh.md)  
+[Introduction to SSH & SCP](./ssh.md)
+[Transferring your data](Data_transfer.md)
 [Part 3: Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
-
+[FAQ](./FAQ.md) 

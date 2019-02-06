@@ -1,7 +1,7 @@
 # Part 1: Create a Docker container and install Matlab
 
 
-## Step 1: Install Docker software on PC (Windows 10 Pro)
+## Step 1: Install Docker software on PC (Windows 10 Enterprise)
 
 Download Docker Community Edition for Windows via:
 
@@ -37,41 +37,26 @@ Close this screen by clicking on the "X".
 
 ## Step 2: Change virtual machine settings
 
-In windows go to Start Menu and start "Hyper-V Manager"
+In your windows task pane right click on the "Docker Desktop" icon and click settings.
 
-In the pane on the left of Hyper-V Manager, there should be 1 item below Hyper-V Manager: click this item.
-
-Now in the middle pane, under Virtual Machines: there should be 1 virtual machine listed with State: running.
-
-We will change some of the settings of this virtual machine, but before we do this we have to shut down the machine.
-
-Go to the "Docker for Windows" Icon in your Windows taskbar.
- 
-Right-click on the Icon.
- 
-A menu appears, click on "Quit Docker"
- 
-In Hyper-V manager you will see that the "MobyLinuxVM" virtual machine wil shutdown.
-
-In Hyper-V manager Right click on the virtual machine and select: Settings
-
-A new window appears. 
+Click the advanced tab.
 
 Under memory: you can change the RAM memory allocated to the virtual machine
 
-Under Processors: you can change the number of virtual processors.
+Under CPUs: you can change the number of virtual processors.
 
 For example: you can choose for a machine with 3 virtual processors and 3000 MB RAM.
 However, which values to choose is limited by your PC. It is recommended not to use all cores of your PC and for RAM memory it is recommended not to use a very large part of the RAM of your system (maximum 60-80%) as it will make normal operations slower (e.g. internet browsing). If your PC becomes much slower, consider changing these values again.
 
-Now start Docker again:
-Double click on the "Docker for Windows" icon on your desktop. Docker will start.
+Now click apply settings. 
+
+Docker will indicate that it is restarting.
 
 Wait about a minute until on the right a small screen will appear saying "Docker is now up and Running"
 
 ## Step 3: Start working with Docker
 
-Start a Windows Command Prompt session by typing `cmd` in the windows start menu search field.
+Start a Windows Command Prompt session: first click the start button and then type `cmd`.
 
 For some background and basic functions of Windows Command Prompt see [Windows Command Line](https://www.computerhope.com/issues/chusedos.htm)  
 
@@ -84,20 +69,29 @@ Version information should be displayed for Docker Client and for Docker Server.
 
 ## Step 4: Pull Docker Image
 
-Several Docker Images with different versions of MATLAB have been prepared by UU ITS. For an overview, type:
+Several Docker Images with different versions of MATLAB have been prepared by UU ITS. Type:
 
 ```
 > docker search uumatlabinstall
 ```
+to view the the repository.
 
-**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the module avail command (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
+**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the command: `module avail` at the HPC command line)
+>if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md). >The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
 Pull the image that you need by typing e.g.:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a_user)
 ```
-(<MATLAB version> means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
+
+( `<MATLAB version>` means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
+
+If your MATLAB version is _r2018a_, then type at the commandline:
+
+```
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a
+```
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
 
@@ -106,13 +100,13 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
 ```
 
 If an errormessage is displayed saying that "…port is already allocated" choose another port with the following docker command, e.g.:
 
 ``` 
-docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a)
+docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
 ```
 
 
@@ -144,9 +138,9 @@ Click OK.
 
 In Windows command prompt, run the following command
 
-docker exec -it -u user matlabuu bash
+`docker exec -it -u user matlabuu bash`
 
-You will see that the prompt changed from:
+You will see that the prompt changed from something like:
 
 `C:\Users\ITS\>`
 
@@ -183,8 +177,7 @@ In your container, give the following command to set the X11 Server display port
 ```
 
 <xxx.xxx.xxx.xxx> = IP address from desktop
-This is the IPv4-address that can be found via internet connection properties.
-It is also shown at the top of the SSH session, next to the DISPLAY field.
+This is the IPv4-address that can be found via internet connection properties or via [www.whatsmyip.org](http://www.whatsmyip.org/).
 
 Check if Xserver-Client is working by starting the xclock application:
 
@@ -206,20 +199,13 @@ $ cd matlab
 ```
 
 **IMPORTANT!** 
-Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+When you run the following command an installation menu will start. Make sure to follow the installation instructions below during the installation process. It is particularly important to choose the right installation folder and select the right toolboxes.
 
 Run MATLAB installation script:
 ```
 $ sudo ./install_matlab.sh
 ```
-When asked for a password, type:
-
-```
-$ user
-```
-and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
-
-An installer screen will pop-up in new window.
+An installer screen will pop-up in a new window.
 ! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
 In the installer screen, do the following: 
@@ -228,12 +214,13 @@ Login to your Mathworks account
 
 Select campus license and proceed
 
-**Choose destination folder: /opt/matlab** 
+**Choose installation folder: /opt/matlab** 
 
 **Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
-When the installer has finished you are ready to start MATLAB.
+When the installer has finished, you will be asked if you want to activate matlab now. Activate matlab.
 
+When you have finished the activation procedure, you are ready to start MATLAB.
 
 
 If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
@@ -296,8 +283,9 @@ Continue with [part 2](./Part-2-running-matlab.md)
 [Introduction to Linux](./Linux_intro.md)  
 [Introduction to Docker](./Docker_intro.md)  
 [Introduction to HPC](./HPC_intro.md)  
-[Intro SSH & SCP](./ssh.md)  
+[Introduction to SSH & SCP](./ssh.md)
+[Transferring your data](Data_transfer.md)
 [Part 3: Parallelization of MATLAB scripts](./matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
-
+[FAQ](./FAQ.md) 
 
