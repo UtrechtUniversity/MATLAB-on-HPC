@@ -140,7 +140,7 @@ When the jobs are done, an error file and an output file are produced in the dir
 <submission-filename>.e<job-id>   	(errorfile)
 <submission-filename>.o<job-id>	    (outputfile)
 ```
-Type:```#ls``` to see if they are there.
+Type:```ls``` to see if they are there.
 
 You can open them using 
 ```
