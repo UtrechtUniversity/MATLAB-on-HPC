@@ -140,8 +140,7 @@ $ export DISPLAY=<xxx.xxx.xxx.xxx>:0.0
 ```
 
 <xxx.xxx.xxx.xxx> = IP address from desktop
-This is the IPv4-address that can be found via internet connection properties.
-It is also shown at the top of the SSH session, next to the DISPLAY field.
+This is the IPv4-address that can be found via internet connection properties or via [www.whatsmyip.org](http://www.whatsmyip.org/).
 
 Check if Xserver-Client is working by starting the xclock application:
 
