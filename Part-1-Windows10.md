@@ -76,7 +76,8 @@ Several Docker Images with different versions of MATLAB have been prepared by UU
 ```
 to view the the repository.
 
-**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the command: `module avail` at the HPC command line (if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md)). The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
+**IMPORTANT** Before pulling a Docker Image, make sure which version of MATLAB compiler runtime (MCR) is available on the cluster that you will be using (check this using the command: `module avail` at the HPC command line)
+>if this is the first time you use Linux or login to a cluster: see [Introduction to Linux](./Linux_intro.md) and [Introduction to HPC](./HPC_intro.md). >The Docker Image should feature the same MATLAB version as one of the mcr versions installed on the HPC system. Check [this website](https://nl.mathworks.com/products/compiler/matlab-runtime.html) to see which MATLAB release links to which version of MCR.
 
 Pull the image that you need by typing e.g.:
 
@@ -86,9 +87,10 @@ Pull the image that you need by typing e.g.:
 
 ( `<MATLAB version>` means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
 
-e.g.  
+If your MATLAB version is _r2018a_, then type at the commandline:
+
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user     
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a
 ```
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
@@ -138,7 +140,7 @@ In Windows command prompt, run the following command
 
 `docker exec -it -u user matlabuu bash`
 
-You will see that the prompt changed from:
+You will see that the prompt changed from something like:
 
 `C:\Users\ITS\>`
 
@@ -203,7 +205,7 @@ Run MATLAB installation script:
 ```
 $ sudo ./install_matlab.sh
 ```
-An installer screen will pop-up in new window.
+An installer screen will pop-up in a new window.
 ! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
 In the installer screen, do the following: 
