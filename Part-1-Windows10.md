@@ -96,9 +96,13 @@ to view the the repository.
 Pull the image that you need by typing e.g.:
 
 ```
-> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a_user)
+> docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>     (r2016a,r2017b,r2018a_user)
 ```
-(<MATLAB version> means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
+e.g.  
+```
+> docker pull uumatlabinstall/matlab-hpc-compile:r2018a_user     
+```
+( `<MATLAB version>` means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
 
