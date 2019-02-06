@@ -37,35 +37,20 @@ Close this screen by clicking on the "X".
 
 ## Step 2: Change virtual machine settings
 
-In windows go to Start Menu and start "Hyper-V Manager"
+In your windows task pane right click on the "Docker Desktop" icon and click settings.
 
-In the pane on the left of Hyper-V Manager, there should be 1 item below Hyper-V Manager: click this item.
-
-Now in the middle pane, under Virtual Machines: there should be 1 virtual machine listed with State: running.
-
-We will change some of the settings of this virtual machine, but before we do this we have to shut down the machine.
-
-Go to the "Docker for Windows" Icon in your Windows taskbar.
- 
-Right-click on the Icon.
- 
-A menu appears, click on "Quit Docker"
- 
-In Hyper-V manager you will see that the "MobyLinuxVM" virtual machine wil shutdown.
-
-In Hyper-V manager Right click on the virtual machine and select: Settings
-
-A new window appears. 
+Click the advanced tab.
 
 Under memory: you can change the RAM memory allocated to the virtual machine
 
-Under Processors: you can change the number of virtual processors.
+Under CPUs: you can change the number of virtual processors.
 
 For example: you can choose for a machine with 3 virtual processors and 3000 MB RAM.
 However, which values to choose is limited by your PC. It is recommended not to use all cores of your PC and for RAM memory it is recommended not to use a very large part of the RAM of your system (maximum 60-80%) as it will make normal operations slower (e.g. internet browsing). If your PC becomes much slower, consider changing these values again.
 
-Now start Docker again:
-Double click on the "Docker for Windows" icon on your desktop. Docker will start.
+Now click apply settings. 
+
+Docker will indicate that it is restarting.
 
 Wait about a minute until on the right a small screen will appear saying "Docker is now up and Running"
 
