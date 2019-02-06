@@ -212,19 +212,12 @@ $ cd matlab
 ```
 
 **IMPORTANT!** 
-Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+When you run the following command an installation menu will start. Make sure to follow the installation instructions below during the installation process. It is particularly important to choose the right installation folder and select the right toolboxes.
 
 Run MATLAB installation script:
 ```
 $ sudo ./install_matlab.sh
 ```
-When asked for a password, type:
-
-```
-$ user
-```
-and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
-
 An installer screen will pop-up in new window.
 ! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
 
@@ -234,7 +227,7 @@ Login to your Mathworks account
 
 Select campus license and proceed
 
-**Choose destination folder: /opt/matlab** 
+**Choose installation folder: /opt/matlab** 
 
 **Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
