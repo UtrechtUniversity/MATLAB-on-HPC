@@ -70,12 +70,14 @@ Pull the image that you need by typing e.g.:
 ```
 > docker pull uumatlabinstall/matlab-hpc-compile:<MATLAB version>    (r2016a,r2017b,r2018a)
 ```
+
+( `<MATLAB version>` means you should fill in the MATLAB version of your choice here. These symbols < > will be used more often in this manual when something has to be specified by the user. In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify R2018a in a command.)
+
 If your MATLAB version is _r2018a_, then type at the commandline:
 
 ```
 > docker pull uumatlabinstall/matlab-hpc-compile:r2018a
 ```
-In this manual we will use version r2018a. If you choose another version you have to change versions each time we specify r2018a in a command.
 
 To build a container yourself instead of pulling this ready to use container you may also follow [this guide](./build_container.md).
 
@@ -165,10 +167,10 @@ Now you can close the separate Terminal session and go back to the SSH session.
 In the SSH session to the docker container in the Terminal, set the DISPLAY variable with your internet IP address followed by `:0.0`. E.g.
 
 ```
-$ export DISPLAY=145.107.146.50:0.0 
+$ export DISPLAY=123.456.789.01:0.0 
 ```
 
-This is the IPv4-address that can be found in *Preferences --> Network --> Advanced --> TCP/IP*. Or look it upin with [your browser](https://whatismyipaddress.com).
+This is the IPv4-address that can be found in *Preferences --> Network --> Advanced --> TCP/IP*. Or look it up with [your browser](https://whatismyipaddress.com).
 
 Check if Xserver-Client is working by starting the xclock application:
 
@@ -187,20 +189,13 @@ $ cd ~
 $ cd matlab
 ```
 
-
 **IMPORTANT!** 
-Make sure to follow the installation instructions below during the installation process. Especially when you have to choose installation folder and when selecting toolboxes.
+When you run the following command an installation menu will start. Make sure to follow the installation instructions below during the installation process. It is particularly important to choose the right installation folder and select the right toolboxes.
 
 Run MATLAB installation script:
 ```
 $ sudo ./install_matlab.sh
 ```
-When asked for a password, type:
-
-```
-$ user
-```
-and press enter. (when you type in a password in Linux nothing happens in the screen, just type and press enter, you will get used to it)
 
 An installer screen will pop-up in new window.
 ! If not, there is a potential problem when firewall is active (see previous step or [FAQ](./FAQ.md)).
@@ -215,8 +210,9 @@ Select campus license and proceed
 
 **Select toolboxes required for compilation and parallelization (Matlab compiler & Parallel computing toolbox), and any other toolboxes that are needed for your analyses and proceed.**
 
-When the installer has finished you are ready to start MATLAB.
+When the installer has finished, you will be asked if you want to activate matlab now. Activate matlab.
 
+When you have finished the activation procedure, you are ready to start MATLAB.
 
 If you want to proceed with using MATLAB: go to [part 2](./Part-2-running-matlab.md)
 
