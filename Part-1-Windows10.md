@@ -100,13 +100,13 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
+> docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a     (r2016a,r2017b,r2018a)
 ```
 
 If an errormessage is displayed saying that "…port is already allocated" choose another port with the following docker command, e.g.:
 
 ``` 
-docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user     (r2016a,r2017b,r2018a)
+docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a     (r2016a,r2017b,r2018a)
 ```
 
 
