@@ -73,7 +73,7 @@ To build a container yourself instead of pulling this ready to use container you
 Type the following command to start a docker container:
 
 ```
-> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a_user
+> docker run -d -p 23:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
 ```
 
 Verify if the container named matlabuu is running:
