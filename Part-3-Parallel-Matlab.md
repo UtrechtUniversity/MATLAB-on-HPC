@@ -58,7 +58,7 @@ where `n` is now 10.
 
 The script and input data can be found here if you would like to test this example:
 
-[Examplescript](./examplescript.m)
+[Examplescript](./examplescript.m)  
 [Input data](./examplefile.mat)
 
 For more information about job submission files see [introduction to HPC](./HPC_intro.md).
@@ -172,7 +172,7 @@ Suitable for: Tasks involving a number of independent calculations
 A job can be submitted to one node and make use of all the cores on that node for parallelization. However, if the task allows it, it is of course possible to subdivide the work into multiple jobs and submit multiple jobs at the same time to make use of more than 1 compute node. 
 
 ## Start working with your own data
-Check the data transfer [manual](Data_transfer.md) to see how you can get access to your own data from your docker container.
+Check the data transfer [manual](./Data_transfer.md) to see how you can get access to your own data from your docker container.
 
 
 ## Links
@@ -187,3 +187,4 @@ Check the data transfer [manual](Data_transfer.md) to see how you can get access
 [Part 2](./Part-2-running-matlab.md)
 [MATLAB Test script 1](./Test_1.m)  
 [FAQ](./FAQ.md)  
+[Data Transfer](./Data_transfer.md)
