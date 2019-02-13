@@ -1,15 +1,16 @@
 # Data transfer between Docker Container and HPC
 
-There are two ways to transfer files between your Docker container and the HPC cluster using the SCP protocol: via command line (fast, no nonsense approach) or using software with a graphical user interface (intuitive for beginning users).
+There are two ways to transfer files between your Docker container and the HPC cluster using the SCP protocol: via command line (fast, reproducible  approach) or using software with a graphical user interface (intuitive for beginning users).
 
 ### Transfer using command line
 
-**Rclone**
+**Online cloud storage**
+It is possible to synchronize data between the Docker container and an online storage platform (such as Yoda or Surfdrive).  This approach fits in the recommended workflow for High Performance Computing (see [this page](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/workflow.md)).
 
-It is possible to synchronize data between the Docker container and an online storage platform (such as Yoda or Surfdrive) using Rclone. Rclone perfectly fits in an workflow for High Performance Computing (see [this page](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/workflow.md)).
+Transfer between Surfdrive (and Onedrive, Dropbox, Google drive, etc.) and the Docker container can be done using Rclone. Instructions for installing and using Rclone are available for [Surfdrive](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/surfdrive.md). Although these instructions are initially written for using Rclone on HPC platforms, the installation procedure in the Docker container is equal.
 
-Instructions for installing and using Rclone are available for [Surfdrive](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/surfdrive.md) and [Yoda](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/rclone_yoda.md). 
-Although these instructions are initially written for using Rclone on HPC platforms, the installation procedure is equal.
+Transfer between Yoda and the Docker container can be done using icommands. Instructions for configuring and using icommands can be found [here](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/rclone_yoda.md). Although these instructions are initially written for using icommands on HPC platforms, the configuration procedure for the Docker container is equal.
+
 
 **Secure Copy**
 
