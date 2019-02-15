@@ -259,7 +259,7 @@ Continue with [part 2](./Part-2-running-matlab.md)
 [Introduction to HPC](./HPC_intro.md)  
 [Introduction to SSH & SCP](./ssh.md)  
 [Transferring your data](Data_transfer.md)  
-[Part 3: Parallelization of MATLAB scripts](./matlab.md)  
+[Part 3: Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md)  
 [MATLAB Test script 1](./Test_1.m)  
 [FAQ](./FAQ.md)  
 
