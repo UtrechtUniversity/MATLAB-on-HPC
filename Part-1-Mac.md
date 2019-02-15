@@ -83,7 +83,18 @@ To build a container yourself instead of pulling this ready to use container you
 
 ### Step 5: Start docker container
 
-Type the following command to start a docker container:
+When you run a docker container using the `docker run` command, you can select a couple of options. A useful option is to mount a folder from your PC in the docker container. This is useful when you want to transfer files between your docker container and your pc. When you work with cloud storage (Yoda, surfdrive, google drive) you don't need this option (see [data transfer](./Data_transfer.md)). Type the following command to start a docker container WITH a mount of a local folder:
+
+```
+> docker run -d -p 22:22 -v /<local path>:/home/user/mnt --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+```
+Where in the place of <local path>, you have to type the path to the local folder, e.g.:
+
+```
+> docker run -d -p 22:22 -v ~/Desktop/:/home/user/mnt --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+```
+
+To run a container without a mounted folder type:
 
 ```
 > docker run -d -p 22:22 --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
