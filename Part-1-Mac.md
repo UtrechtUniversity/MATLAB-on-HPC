@@ -91,7 +91,7 @@ When you run a docker container using the `docker run` command, you can select a
 Where in the place of <local path>, you have to type the path to the local folder, e.g.:
 
 ```
-> docker run -d -p 22:22 -v ~/Desktop/:/home/user/mnt --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
+> docker run -d -p 22:22 -v ~/home/<user>/Documents/:/home/user/mnt --name matlabuu uumatlabinstall/matlab-hpc-compile:r2018a
 ```
 
 To run a container without a mounted folder type:
