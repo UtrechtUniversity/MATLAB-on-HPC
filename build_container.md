@@ -41,6 +41,9 @@ RUN apt-get update && \
         -y vim \
         -y unzip \
         -y xorg \
+		-y libfuse2 \
+		-y cifs-utils \
+		-y wget libcurl4-gnutls-dev \
 	-y net-tools \
 	-y sudo
 
@@ -69,18 +72,32 @@ RUN mkdir /home/user/matlab
 COPY matlab_R2018a_glnxa64.zip /home/user/matlab
 RUN cd /home/user/matlab \
  && unzip matlab_R2018a_glnxa64.zip \
- && chown -R user /home/user \
- && chgrp -R user /home/user
+ && chown -R user /home/user
 COPY install_matlab.sh /home/user/matlab
 RUN chown root:root /home/user/matlab/install_matlab.sh \
  && chmod o=rx /home/user/matlab/install_matlab.sh
 
+# install icommands
+RUN wget https://files.renci.org/pub/irods/releases/4.1.12/ubuntu14/irods-icommands-4.1.12-ubuntu14-x86_64.deb -O /tmp/icommands.deb
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y `dpkg -I /tmp/icommands.deb | sed -n 's/^ Depends: //p' | sed 's/,//g'`
+RUN dpkg -i /tmp/icommands.deb \
+ && rm /tmp/icommands.deb
+RUN mkdir /home/user/.irods \
+ && chown user:user /home/user/.irods \
+ && chmod +w /home/user/.irods
+ 
+# create folder for mounting local folder
+RUN mkdir /home/user/mnt
 
 # give sudo rights for installer file
 RUN echo "${user} ALL=(ALL:ALL) NOPASSWD: /home/user/matlab/install_matlab.sh" >> /etc/sudoers
 
+# expose irods port
+EXPOSE 1247
+
 # run command at startup
 CMD ["/usr/sbin/sshd", "-D"]
+
 ```
 **Note:**
 This Dockerfile is used to create an Ubuntu 16.04 image with ssh access, and the following programs installed: vim, unzip and xorg.
