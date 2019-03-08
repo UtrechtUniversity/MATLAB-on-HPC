@@ -183,7 +183,7 @@ End of test run
 ```
 If yes, the job succeeded. 
 
-You may proceed to [Parallelization of MATLAB scripts](./matlab.md), or end the session.
+You may proceed to [Parallelization of MATLAB scripts](./Part-3-Parallel-Matlab.md), or end the session.
 
 ## Step 7: End sessions
 
