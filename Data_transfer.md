@@ -4,7 +4,7 @@ There are two ways to transfer files between your Docker container and the HPC c
 
 ### Transfer using command line
 
-**Online cloud storage**
+**Online cloud storage**  
 It is possible to synchronize data between the Docker container and an online storage platform (such as Yoda or Surfdrive).  This approach fits in the recommended workflow for High Performance Computing (see [this page](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/workflow.md)).
 
 Transfer between Surfdrive (and Onedrive, Dropbox, Google drive, etc.) and the Docker container can be done using Rclone. Instructions for installing and using Rclone are available for [Surfdrive](https://github.com/UtrechtUniversity/HPC-data-synchronization/blob/master/docs/surfdrive.md). Although these instructions are initially written for using Rclone on HPC platforms, the installation procedure in the Docker container is equal.
